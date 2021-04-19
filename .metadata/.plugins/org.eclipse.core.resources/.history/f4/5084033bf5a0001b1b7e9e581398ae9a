@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeMapper">
+  <resultMap id="BaseResultMap" type="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.Lenguaje">
+    <id column="uid_instancia" jdbcType="VARCHAR" property="uidInstancia" />
+    <id column="codlengua" jdbcType="VARCHAR" property="codlengua" />
+    <result column="deslengua" jdbcType="VARCHAR" property="deslengua" />
+    <result column="activo" jdbcType="CHAR" property="activo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid_instancia, codlengua, deslengua, activo
+  </sql>
+  <select id="selectByExample" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_lenguajes_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_lenguajes_tbl
+    where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+      and codlengua = #{codlengua,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeKey">
+    delete from d_lenguajes_tbl
+    where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+      and codlengua = #{codlengua,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeExample">
+    delete from d_lenguajes_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.Lenguaje">
+    insert into d_lenguajes_tbl (uid_instancia, codlengua, deslengua, 
+      activo)
+    values (#{uidInstancia,jdbcType=VARCHAR}, #{codlengua,jdbcType=VARCHAR}, #{deslengua,jdbcType=VARCHAR}, 
+      #{activo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.Lenguaje">
+    insert into d_lenguajes_tbl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uidInstancia != null">
+        uid_instancia,
+      </if>
+      <if test="codlengua != null">
+        codlengua,
+      </if>
+      <if test="deslengua != null">
+        deslengua,
+      </if>
+      <if test="activo != null">
+        activo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uidInstancia != null">
+        #{uidInstancia,jdbcType=VARCHAR},
+      </if>
+      <if test="codlengua != null">
+        #{codlengua,jdbcType=VARCHAR},
+      </if>
+      <if test="deslengua != null">
+        #{deslengua,jdbcType=VARCHAR},
+      </if>
+      <if test="activo != null">
+        #{activo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeExample" resultType="java.lang.Long">
+    select count(*) from d_lenguajes_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update d_lenguajes_tbl
+    <set>
+      <if test="record.uidInstancia != null">
+        uid_instancia = #{record.uidInstancia,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codlengua != null">
+        codlengua = #{record.codlengua,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deslengua != null">
+        deslengua = #{record.deslengua,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activo != null">
+        activo = #{record.activo,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update d_lenguajes_tbl
+    set uid_instancia = #{record.uidInstancia,jdbcType=VARCHAR},
+      codlengua = #{record.codlengua,jdbcType=VARCHAR},
+      deslengua = #{record.deslengua,jdbcType=VARCHAR},
+      activo = #{record.activo,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.Lenguaje">
+    update d_lenguajes_tbl
+    <set>
+      <if test="deslengua != null">
+        deslengua = #{deslengua,jdbcType=VARCHAR},
+      </if>
+      <if test="activo != null">
+        activo = #{activo,jdbcType=CHAR},
+      </if>
+    </set>
+    where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+      and codlengua = #{codlengua,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.Lenguaje">
+    update d_lenguajes_tbl
+    set deslengua = #{deslengua,jdbcType=VARCHAR},
+      activo = #{activo,jdbcType=CHAR}
+    where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+      and codlengua = #{codlengua,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes.LenguajeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_lenguajes_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

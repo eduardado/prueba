@@ -1,0 +1,13 @@
+package com.comerzzia.bookerzzia.backoffice.web.lenguajes;
+
+import com.comerzzia.web.base.ControladorServlet;
+
+public class LenguajesServlet extends ControladorServlet{
+
+	@Override
+	protected void loadAcciones() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

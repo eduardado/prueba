@@ -1,0 +1,15 @@
+1618814641492	Rename package 'com.comerzzia.bookerzzia.backoffice.services.utils.paginacion'
+1618815475023	Rename local variable 'param'
+1618819113715	Rename local variable 'key'
+1618822236306	Extract local variable 'message'
+1618825184910	Rename package 'com.comerzzia.bookerzzia.backoffice.persistence.lenguajes'
+1618825257117	Move compilation units
+1618825263669	Delete element
+1618825324664	Copy file
+1618825678634	Copy files
+1618825697783	Delete elements
+1618826051810	Move package
+1618826068354	Delete elements
+1618826116699	Rename package 'com.comerzzia.bookerzzia.backoffice.web.persistence.lenguajes'
+1618826125711	Rename package 'com.comerzzia.bookerzzia.backoffice.web.services.lenguajes'
+1618829198238	Rename type 'LenguajeService'

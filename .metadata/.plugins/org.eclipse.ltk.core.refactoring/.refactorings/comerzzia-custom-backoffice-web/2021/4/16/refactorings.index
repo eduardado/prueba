@@ -1,0 +1,9 @@
+1618826024038	Move packages
+1618829386335	Rename local variable 'datosSesionBean'
+1618829423958	Rename local variable 'sesion'
+1618829896924	Move compilation unit
+1618830855441	Rename local variable 'parametrosBuscarLenguajesBean'
+1618830859544	Rename local variable 'parem'
+1618853535780	Rename local variable 'httpSession'
+1618854140399	Rename local variable 'sesion'
+1618857538753	Extract local variable 'consultar'

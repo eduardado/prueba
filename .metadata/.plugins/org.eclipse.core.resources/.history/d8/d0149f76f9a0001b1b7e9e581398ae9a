@@ -1,0 +1,17 @@
+package com.comerzzia.bookerzzia.backoffice.web.lenguajes;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.comerzzia.web.base.ControladorServlet;
+
+@WebServlet(value = "/lenguajes", description = "Servlet de Lenguajes", displayName = "LenguajesServlet", name="LenguajesServlet")
+public class LenguajesServlet extends ControladorServlet{
+
+	@Override
+	protected void loadAcciones() {
+		this.añadirAccionDefault(new EjecutarAccion()); // por qué el this aquí? no es redundante?
+		this.añadirAccion(new BuscarAccion());
+		
+	}
+
+}

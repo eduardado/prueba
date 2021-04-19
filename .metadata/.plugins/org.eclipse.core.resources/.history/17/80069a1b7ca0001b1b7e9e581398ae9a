@@ -1,0 +1,37 @@
+package com.comerzzia.bookerzzia.backoffice.services.lenguajes;
+
+
+public class ParametrosBuscarLenguajesBean {
+	// TODO ?????
+	private String codLengua;
+	private String desLengua;
+	
+	public String getCodLengua() {
+		return codLengua;
+	}
+	
+	public void setCodLengua(String codLengua) {
+		this.codLengua = codLengua;
+	}
+	
+	public String getDesLengua() {
+		return desLengua;
+	}
+	
+	public void setDesLengua(String desLengua) {
+		this.desLengua = desLengua;
+	}
+
+	public String getOrden() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getOrden() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

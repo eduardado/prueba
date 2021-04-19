@@ -1,0 +1,47 @@
+package com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean;
+import com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys;
+import com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean;
+import com.comerzzia.core.servicios.sesion.DatosSesionBean;
+import com.comerzzia.taglib.WebKeys;
+import com.comerzzia.web.base.Accion;
+import com.comerzzia.web.base.Vista;
+
+// este servlet se ejecuta al entrar en la pantalla por primera vez
+public class EjecutarAccion extends Accion {
+
+	@Override
+	public Vista ejecutar(HttpServletRequest request) { // recibe un request y devuelve una vista
+
+		// obtiene los datos de la sesión
+		HttpSession httpSession = request.getSession(); // a partir de un HttpServletRequest se obtiene la sesión
+		DatosSesionBean datosSesion = (DatosSesionBean) httpSession.getAttribute(WebKeys.DATOS_SESION);
+
+		// Comprueba los permisos de la acción
+		PermisosEfectivosAccionBean permisos = datosSesion.getPermisos(this.getAccionMenu()); // TODO para qué este
+		                                                                                      // this?
+		if (!permisos.isPuedeEjecutar()) { // si el permiso no se puede ejecutar
+			return SIN_PERMISO; // si no se puede ejecutar devuelve la vista llamada SIN_PERMISO
+		}
+
+		// Inicializa parámetros de búsqueda
+		ParametrosBuscarLenguajesBean param = (ParametrosBuscarLenguajesBean) httpSession.getAttribute(CustomWebKeys.PARAM_BUSCAR_LENGUAJES);
+		if (param == null) {
+			param = new ParametrosBuscarLenguajesBean();
+			httpSession.setAttribute(CustomWebKeys.PARAM_BUSCAR_LENGUAJES, param);
+		}
+
+		return null;
+	}
+
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

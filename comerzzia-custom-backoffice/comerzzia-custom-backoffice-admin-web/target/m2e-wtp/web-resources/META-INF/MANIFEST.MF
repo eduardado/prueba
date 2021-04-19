@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Build-Jdk: 15.0.2
+Build-commit: 
+Build-number: 
+Build-timestamp: 
+Built-By: 
+Created-By: Maven Integration for Eclipse
+Version: 4.8.1-SNAPSHOT
+comerzzia-custom-version: 0.0.1-SNAPSHOT
+comerzzia-module: comerzzia-custom-backoffice-admin-web
+comerzzia-module-version: 0.0.1-SNAPSHOT
+

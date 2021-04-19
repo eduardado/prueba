@@ -1,0 +1,23 @@
+package com.comerzzia.bookerzzia.persistence.lenguajes;
+
+public class Lenguaje extends LenguajeKey {
+    private String deslengua;
+
+    private String activo;
+
+    public String getDeslengua() {
+        return deslengua;
+    }
+
+    public void setDeslengua(String deslengua) {
+        this.deslengua = deslengua == null ? null : deslengua.trim();
+    }
+
+    public String getActivo() {
+        return activo;
+    }
+
+    public void setActivo(String activo) {
+        this.activo = activo == null ? null : activo.trim();
+    }
+}

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Build-Jdk: 15.0.2
+Build-commit: 
+Build-number: 
+Build-timestamp: 
+Built-By: 
+Created-By: Maven Integration for Eclipse
+comerzzia-module: comerzzia-custom-backoffice-services
+comerzzia-module-version: 0.0.1-SNAPSHOT
+
