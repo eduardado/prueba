@@ -28,17 +28,16 @@
 	<!--edd: Pluggins del tutorial -->
 		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
 		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
-<!-- 		<plugin type="org.mybatis.generator.plugins.ScrollInsensitivePlugin"/> -->
-<!-- 		<plugin type="org.mybatis.generator.plugins.ViewPlugin"/> -->
-	
+
 		<commentGenerator>
 			<property name="suppressAllComments" value="true"/>
 		</commentGenerator>	
-	    
+		
+	    <!-- pongo root como Alejandro -->
 	    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
 	        connectionURL="jdbc:mysql://127.0.0.1:3306/cmz_bookerzzia"
-	        userId="cmz_bookerzzia"
-	        password="cmz_bookerzzia">
+	        userId="root"
+	        password="adminroot">
 	    </jdbcConnection>
 	    
 	    
@@ -46,7 +45,7 @@
 	      <property name="enableSubPackages" value="false" />
 	      <property name="trimStrings" value="true" />
 	      <!-- esta línea no está en el vídeo -->
-	      <property name="extendsClass" value="com.comerzzia.core.util.base.MantenimientoBean"/>
+<!-- 	      <property name="extendsClass" value="com.comerzzia.core.util.base.MantenimientoBean"/> -->
 	     </javaModelGenerator>
 	    
 	    <sqlMapGenerator targetPackage="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes"  targetProject="comerzzia-custom-backoffice-services/src/main/java">

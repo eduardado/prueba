@@ -4723,3 +4723,69 @@ java.lang.IllegalArgumentException: java.lang.ClassCastException@785c1494
 
 !ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2021-04-20 22:37:34.320
 !MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.422
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-dependencies:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-dependencies:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-dependencies/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.484
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-servicios:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-servicios:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-servicios/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.489
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-servicios:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-servicios:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-servicios/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.498
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.589
+!MESSAGE The POM for org.gnu.gettext:libintl:jar:0.18.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.641
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-persistencia:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-persistencia:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-persistencia/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.645
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-persistencia:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-persistencia:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-persistencia/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.651
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-model:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-model:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-model/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.656
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-model:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-model:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-model/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.680
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-util:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-util:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-util/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.685
+!MESSAGE Failure to transfer com.comerzzia:comerzzia-backoffice-util:4.8.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia:comerzzia-backoffice-util:4.8.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/comerzzia-backoffice-util/4.8.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.694
+!MESSAGE Failure to transfer com.comerzzia.api.v2.core:comerzzia-core-client-java:1.0.0-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia.api.v2.core:comerzzia-core-client-java:1.0.0-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/api/v2/core/comerzzia-core-client-java/1.0.0-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.699
+!MESSAGE Failure to transfer com.comerzzia.api.v2.core:comerzzia-core-client-java:1.0.0-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia.api.v2.core:comerzzia-core-client-java:1.0.0-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/api/v2/core/comerzzia-core-client-java/1.0.0-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.817
+!MESSAGE Failure to transfer com.comerzzia.api.v2.loyalty:comerzzia-loyalty-client-java:2.0.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia.api.v2.loyalty:comerzzia-loyalty-client-java:2.0.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/api/v2/loyalty/comerzzia-loyalty-client-java/2.0.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-20 22:41:40.822
+!MESSAGE Failure to transfer com.comerzzia.api.v2.loyalty:comerzzia-loyalty-client-java:2.0.1-SNAPSHOT/maven-metadata.xml from https://repo.spring.io/plugins-release/ was cached in the local repository, resolution will not be reattempted until the update interval of spring has elapsed or updates are forced. Original error: Could not transfer metadata com.comerzzia.api.v2.loyalty:comerzzia-loyalty-client-java:2.0.1-SNAPSHOT/maven-metadata.xml from/to spring (https://repo.spring.io/plugins-release/): Access denied to https://repo.spring.io/plugins-release/com/comerzzia/api/v2/loyalty/comerzzia-loyalty-client-java/2.0.1-SNAPSHOT/maven-metadata.xml. Error code 401, 
+
+!ENTRY org.eclipse.ui 2 2 2021-04-20 22:47:53.911
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-04-20 22:50:19.795
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2086)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2021-04-20 22:52:00.631
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2021-04-20 22:52:49.847
+!MESSAGE Server Startup Succeeded
