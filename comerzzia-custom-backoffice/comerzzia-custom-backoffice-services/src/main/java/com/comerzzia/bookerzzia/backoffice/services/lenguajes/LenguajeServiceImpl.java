@@ -11,6 +11,7 @@ import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeMapper;
+import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample.Criteria;
 import com.comerzzia.core.servicios.sesion.DatosSesionBean;
 import com.comerzzia.core.servicios.sesion.IDatosSesion;
@@ -27,7 +28,8 @@ public class LenguajeServiceImpl implements ILenguajeService {
 	@Autowired
 	LenguajeMapper lenguajeMapper;
 
-	// TODO qué es esta clase?? ParametrosBuscarLenguajesBean
+	// la consulta por parámetros devuelve una PaginaResultados
+	// necesita que le demos un objeto que herede de la clase ParametrosBuscarBean
 	@Override
 	public PaginaResultados consultar(ParametrosBuscarLenguajesBean lenguajeParameters, IDatosSesion datosSesion) throws LenguajeException {
 		log.debug("consultar() - Consultando lenguajes");
@@ -62,7 +64,7 @@ public class LenguajeServiceImpl implements ILenguajeService {
 
 		// PaginaResultados usa la clase anterior (resultados por página) y además
 		// una clase con los atributos de Lenguaje + atributos tamañoPagina, numPagina y orden
-		PaginaResultados paginaResultados = new PaginaResultados(lenguajeParameters, resultados);
+		PaginaResultados paginaResultados = new PaginaResultados(lenguajeParameters, resultados); // TODO porqué no instanciamos un ParametrosBuscarLenguajesBean?
 
 		// todos los lenguajes
 		List<Lenguaje> lenguajes = lenguajeMapper.selectByExample(lenguajeExample);

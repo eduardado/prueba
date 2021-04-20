@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.jfree.util.Log;
 
-import com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean;
+import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys;
 import com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean;
 import com.comerzzia.core.servicios.sesion.DatosSesionBean;

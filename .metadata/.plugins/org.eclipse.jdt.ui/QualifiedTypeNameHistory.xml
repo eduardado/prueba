@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="utils.PaginaResultados"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.utils.PaginaResultados"/>
-    <fullyQualifiedTypeName name="com.comerzzia.core.util.paginacion.PaginaResultados"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.ParametrosBuscarBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeNotFoundException"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.Estado"/>
@@ -20,13 +19,20 @@
     <fullyQualifiedTypeName name="com.comerzzia.web.base.ControladorServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.EjecutarAccion"/>
-    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.BuscarAccion"/>
     <fullyQualifiedTypeName name="com.comerzzia.web.base.Accion"/>
+    <fullyQualifiedTypeName name="org.jfree.util.Log"/>
+    <fullyQualifiedTypeName name="org.glassfish.hk2.utilities.reflection.Logger"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.BuscarAccion"/>
+    <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeServiceImpl"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="com.comerzzia.taglib.WebKeys"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.sesion.DatosSesionBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.core.util.paginacion.PaginaResultados"/>
+    <fullyQualifiedTypeName name="com.comerzzia.taglib.WebKeys"/>
+    <fullyQualifiedTypeName name="com.comerzzia.web.base.WebKeys"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys"/>
-    <fullyQualifiedTypeName name="org.jfree.util.Log"/>
+    <fullyQualifiedTypeName name="com.comerzzia.core.servicios.lenguajes.LenguajesService"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ILenguajeService"/>
 </qualifiedTypeNameHistroy>

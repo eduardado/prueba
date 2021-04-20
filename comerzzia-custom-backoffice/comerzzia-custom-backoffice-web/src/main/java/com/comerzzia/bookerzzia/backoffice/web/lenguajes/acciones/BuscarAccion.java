@@ -6,8 +6,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.bookerzzia.backoffice.services.lenguajes.ILenguajeService;
-import com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys;
 import com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean;
 import com.comerzzia.core.servicios.sesion.DatosSesionBean;
@@ -21,6 +21,7 @@ public class BuscarAccion extends Accion {
 	protected static Logger log = Logger.getLogger(BuscarAccion.class);
 
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/buscar/jsp/buscar.jsp", Vista.INTERNA);
+	// Qualified name:  comerzzia-custom-backoffice-web/src/main/webapp/backoffice/lenguajes/buscar/jsp/buscar.jsp
 
 	@Autowired
 	ILenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O

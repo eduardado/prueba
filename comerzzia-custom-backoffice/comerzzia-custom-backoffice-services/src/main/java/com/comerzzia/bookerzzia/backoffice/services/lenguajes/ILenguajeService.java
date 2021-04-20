@@ -1,6 +1,7 @@
 package com.comerzzia.bookerzzia.backoffice.services.lenguajes;
 
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje;
+import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.core.servicios.sesion.IDatosSesion;
 import com.comerzzia.core.util.paginacion.PaginaResultados;
 
