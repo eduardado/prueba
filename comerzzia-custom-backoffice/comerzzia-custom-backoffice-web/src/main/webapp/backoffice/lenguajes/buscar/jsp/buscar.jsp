@@ -16,17 +16,12 @@
     RESTRICTIONS.
 
 --%>
-<!-- para qué es la @? -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="cmz" uri="http://comerzzia.com/taglib" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!-- Añado la otra librería de la que se habla en el vídeo?? -->
 
-<!-- useBean? qué es un Bean por cierto? por qué llamamos a alguna clases Bean en los modelos? -->
-<%-- <jsp:useBean id="paramBuscarLenguajes" type="com.comerzzia.core.persistencia.usuarios.ParametrosBuscarUsuariosBean" scope="session" /> --%>
-<jsp:useBean id="paramBuscarLenguajes" type="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean" scope="session" />
+<jsp:useBean id="paramBuscarLenguajes" type="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean" scope="session" />
 <jsp:useBean id="paginaResultados" class="com.comerzzia.core.util.paginacion.PaginaResultados" scope="request" />
 <jsp:useBean id="permisos" class="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,23 +35,23 @@
     <cmz:head/>
     <script type="text/javascript" language="javascript" src="comun/js/comun.js"></script>
     <script type="text/javascript" language="javascript" src="comun/js/formulario.js"></script>
+    <!-- Éste script lo acabo de ver -->
+    <script type="text/javascript" language="javascript" src="comun/js/ayudas.js"></script>
     
-    <!-- está bien aquí codlengua? -->
     <script type="text/javascript">
         function inicio() {
-        	setFoco("codlengua");
+        	setFoco("usuario");
         }
     </script>
   </head>
 
-<!-- Permisos, esta parte debe ser común a todos los jsp -->
   <body onload="inicio();">
     <cmz:main>
       <cmz:panelCMZ>
         <cmz:cabeceraPanelCMZ titulo="${permisos.accionMenu.titulo}" icono="${permisos.accionMenu.icono}">
           <cmz:acciones numAccionesVisibles="1">
             <c:if test="${permisos.puedeAñadir}">
-			  <cmz:accionNuevoRegistro onclick="alta()" descripcion="Añadir un nuevo lenguaje"/>	            
+			  <cmz:accionNuevoRegistro onclick="alta()" descripcion="Alta de un nuevo lenguaje"/>	            
             </c:if>
             <cmz:accion titulo="Ver Permisos" icono="comun/images/iconos/i-key.gif" descripcion="Ver permisos efectivos del usuario" onclick="verPermisos(${permisos.accionMenu.idAccion})" />
             <c:if test="${permisos.puedeAdministrar}">
@@ -67,7 +62,6 @@
         
         <cmz:cuerpoPanelCMZ>
           <cmz:mensaje/>
-          <!-- action lenguajes -->
           <form id="frmDatos" name="frmDatos" action="lenguajes" method="post">
             <input id="accion" name="accion" type="hidden" value="" />
             <input id="operacion" name="operacion" type="hidden" value="" />
@@ -75,7 +69,6 @@
             <input id="pagina" name="pagina" type="hidden" value="" />
             <input id="idObjeto" name="idObjeto" type="hidden" value="" />
             
-            <!-- Panel con los filtros que se quieren aplicar a la búsqueda -->
             <cmz:panel>
               <cmz:cabeceraPanel titulo="Búsqueda de Lenguajes"></cmz:cabeceraPanel>
               <cmz:cuerpoPanel>
@@ -85,28 +78,20 @@
                       <table cellpadding="2px" cellspacing="2px" border="0px">
                         <tr>
                           <td><cmz:etiqueta titulo="Código"/>:</td>
-                          <td><cmz:campoTexto id="codlengua" valor="${paramBuscarLenguajes.codlengua}" anchura="350px" longitudMaxima="100"/></td>
+                          <td><cmz:campoTexto id="codlengua" valor="${paramBuscarLenguajes.codlengua}" anchura="100px" longitudMaxima="6"/></td>
 
-<!--                           <td> -->
-<!--       						<select class="campo" id="activo" name="activo"> -->
-<%--                           		<option value="" <c:if test="${paramBuscarUsuarios.activo == ''}">selected="selected"</c:if>><cmz:etiqueta titulo="Todos"/></option> --%>
-<%--                           		<option value="S" <c:if test="${paramBuscarUsuarios.activo == 'S'}">selected="selected"</c:if>><cmz:etiqueta titulo="Activos"/></option> --%>
-<%--                           		<option value="N" <c:if test="${paramBuscarUsuarios.activo == 'N'}">selected="selected"</c:if>><cmz:etiqueta titulo="Inactivos"/></option> --%>
-<!--                           	</select> -->
-<!--                           </td> -->
                         
                           <!-- Separador del botón -->
-                          <td width="150px"></td>
+                          <td width="50px"></td>
 		                  
 		                  <td>
-		                  <!-- botón consultar que ejecuta la búsqueda -->
 	                        <cmz:botonConsultar onclick="consultar();"/>
 	                      </td>
                         </tr>
                         
                         <tr>
                           <td><cmz:etiqueta titulo="Descripción"/>:</td>
-                          <td><cmz:campoTexto id="desLengua" valor="${paramBuscarLenguajes.deslengua}" anchura="350px" longitudMaxima="50"/></td>
+                          <td><cmz:campoTexto id="deslengua" valor="${paramBuscarLenguajes.deslengua}" anchura="100px" longitudMaxima="20"/></td>
                         </tr>
                       </table>
                     </td>
@@ -115,7 +100,6 @@
               </cmz:cuerpoPanel>
             </cmz:panel>
             
-            <!-- Panel que muestra una tabla con los resultados de la búsqueda -->
             <c:choose>
               <c:when test="${paginaResultados.pagina != null}">
                 <cmz:panel>

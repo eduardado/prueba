@@ -10,12 +10,10 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="utils.PaginaResultados"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.utils.PaginaResultados"/>
-    <fullyQualifiedTypeName name="com.comerzzia.core.util.base.ParametrosBuscarBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeNotFoundException"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.Estado"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeException"/>
-    <fullyQualifiedTypeName name="com.comerzzia.core.util.base.MantenimientoBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.web.base.ControladorServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.EjecutarAccion"/>
@@ -35,4 +33,7 @@
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.lenguajes.LenguajesService"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ILenguajeService"/>
+    <fullyQualifiedTypeName name="com.comerzzia.core.util.base.MantenimientoBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.core.util.base.ParametrosBuscarBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean"/>
 </qualifiedTypeNameHistroy>

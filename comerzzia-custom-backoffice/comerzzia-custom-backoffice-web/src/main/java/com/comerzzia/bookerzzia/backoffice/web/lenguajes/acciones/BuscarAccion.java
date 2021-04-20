@@ -21,7 +21,6 @@ public class BuscarAccion extends Accion {
 	protected static Logger log = Logger.getLogger(BuscarAccion.class);
 
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/buscar/jsp/buscar.jsp", Vista.INTERNA);
-	// Qualified name:  comerzzia-custom-backoffice-web/src/main/webapp/backoffice/lenguajes/buscar/jsp/buscar.jsp
 
 	@Autowired
 	ILenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O
@@ -131,8 +130,8 @@ public class BuscarAccion extends Accion {
 
 	private void setParametrosBuscar(ParametrosBuscarLenguajesBean param, HttpServletRequest request) {
 		// TODO dónde añadimos estos parámetros al request?
-		param.setCodLengua(request.getParameter("codlengua"));
-		param.setDesLengua(request.getParameter("deslengua"));
+		param.setCodlengua(request.getParameter("codlengua"));
+		param.setDeslengua(request.getParameter("deslengua"));
 
 		param.setNumPagina(1);
 

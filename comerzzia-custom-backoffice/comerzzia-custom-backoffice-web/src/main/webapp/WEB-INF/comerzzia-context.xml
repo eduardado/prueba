@@ -34,10 +34,9 @@
     <mybatis:scan base-package="com.comerzzia.api.loyalty.persistence.triggers, com.comerzzia.api.loyalty.persistence.couponsTypes, 
     com.comerzzia.api.loyalty.persistence.coupons, com.comerzzia.api.loyalty.persistence.customers, com.comerzzia.api.loyalty.persistence.cards, com.comerzzia.api.loyalty.persistence.accounts, com.comerzzia.api.loyalty.persistence.cardsTypes" />
     
-    <!-- custom project scans -->    
-    <!-- borrar custom???  -->
-    <context:component-scan base-package="com.comerzzia.custom.backoffice.services, com.comerzzia.bookerzzia.backoffice.services" />
-    <mybatis:scan base-package="com.comerzzia.custom.backoffice.persistence, com.comerzzia.bookerzzia.backoffice.persistence" />
+
+    <context:component-scan base-package="com.comerzzia.bookerzzia.backoffice.services" />
+    <mybatis:scan base-package="com.comerzzia.bookerzzia.backoffice.persistence" />
         
     <tx:annotation-driven />
 

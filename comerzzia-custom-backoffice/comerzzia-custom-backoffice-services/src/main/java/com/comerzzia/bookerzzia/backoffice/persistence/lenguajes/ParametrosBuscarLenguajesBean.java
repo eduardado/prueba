@@ -1,30 +1,30 @@
 package com.comerzzia.bookerzzia.backoffice.persistence.lenguajes;
 
-
 import com.comerzzia.core.util.base.ParametrosBuscarBean;
 
-public class ParametrosBuscarLenguajesBean extends ParametrosBuscarBean { // ojo herencia de ParametrosBuscarbean
-
-	private String codLengua;
-	private String desLengua;
-
-
-	public String getCodLengua() {
-		return codLengua;
+public class ParametrosBuscarLenguajesBean extends ParametrosBuscarBean{
+	
+	private static final long serialVersionUID = 5761172894653714845L; // TODO OJO! 
+	
+	private String codlengua;
+	private String deslengua;
+	
+	public String getCodlengua() {
+		return codlengua;
 	}
-
-	public void setCodLengua(String codLengua) {
-		this.codLengua = codLengua;
+	
+	public void setCodlengua(String codlengua) {
+		this.codlengua = codlengua;
 	}
-
-	public String getDesLengua() {
-		return desLengua;
+	
+	public String getDeslengua() {
+		return deslengua;
 	}
-
-	public void setDesLengua(String desLengua) {
-		this.desLengua = desLengua;
+	
+	public void setDeslengua(String deslengua) {
+		this.deslengua = deslengua;
 	}
-
+	
 	
 
 }

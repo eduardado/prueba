@@ -14,3 +14,9 @@
 1618826125711	Rename package 'com.comerzzia.bookerzzia.backoffice.web.services.lenguajes'
 1618829198238	Rename type 'LenguajeService'
 1618901497278	Move compilation unit
+1618909682670	Delete elements
+1618917402797	Rename field 'codLengua'
+1618917416492	Rename field 'desLengua'
+1618930580095	Rename type 'ParametrosBuscarLenguajesBean'
+1618930825729	Delete elements
+1618931316983	Delete element

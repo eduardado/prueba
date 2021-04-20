@@ -13,7 +13,6 @@ import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeMapper;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample.Criteria;
-import com.comerzzia.core.servicios.sesion.DatosSesionBean;
 import com.comerzzia.core.servicios.sesion.IDatosSesion;
 import com.comerzzia.core.util.base.Estado;
 import com.comerzzia.core.util.paginacion.PaginaResultados;
@@ -44,13 +43,13 @@ public class LenguajeServiceImpl implements ILenguajeService {
 
 		// CODLENGUA
 
-		if (StringUtils.isNotBlank(lenguajeParameters.getCodLengua())) {
-			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getCodLengua() + "%");
+		if (StringUtils.isNotBlank(lenguajeParameters.getCodlengua())) {
+			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getCodlengua() + "%");
 		}
 
 		// DESLENGUA
-		if (StringUtils.isNotBlank(lenguajeParameters.getDesLengua())) {
-			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getDesLengua() + "%");
+		if (StringUtils.isNotBlank(lenguajeParameters.getDeslengua())) {
+			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getDeslengua() + "%");
 		}
 
 		lenguajeExample.setOrderByClause(lenguajeParameters.getOrden());

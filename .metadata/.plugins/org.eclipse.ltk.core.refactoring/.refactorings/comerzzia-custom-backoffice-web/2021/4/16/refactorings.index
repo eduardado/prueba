@@ -7,3 +7,13 @@
 1618853535780	Rename local variable 'httpSession'
 1618854140399	Rename local variable 'sesion'
 1618857538753	Extract local variable 'consultar'
+1618910933816	Delete element
+1618915728991	Rename resource 'buscar.jsp'
+1618917452346	Rename resource 'buscar.jsp'
+1618917458487	Rename resource 'buscarCopy.jsp'
+1618917618625	Rename resource 'buscar.jsp'
+1618917624847	Rename resource 'buscar2.jsp'
+1618917662114	Delete element
+1618931669036	Delete element
+1618949523943	Rename resource 'buscar.jsp'
+1618949534455	Copy file

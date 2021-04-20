@@ -2,7 +2,7 @@ package com.comerzzia.bookerzzia.backoffice.persistence.lenguajes;
 
 import com.comerzzia.core.util.base.MantenimientoBean;
 
-public class LenguajeKey  extends MantenimientoBean{
+public class LenguajeKey extends MantenimientoBean{
     private String uidInstancia;
 
     private String codlengua;

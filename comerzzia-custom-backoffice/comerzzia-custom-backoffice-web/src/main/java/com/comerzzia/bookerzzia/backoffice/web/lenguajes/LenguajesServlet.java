@@ -9,7 +9,11 @@ import com.comerzzia.web.base.ControladorServlet;
 @WebServlet(value = "/lenguajes", description = "Servlet de Lenguajes", displayName = "LenguajesServlet", name="LenguajesServlet")
 public class LenguajesServlet extends ControladorServlet{
 	
-	//TODO ojo no estoy añadiendo el serial ... será necesario?
+	
+	/**
+	 * Serial Version UID
+	 */
+	private static final long serialVersionUID = 1341742045679015472L;
 
 	@Override
 	protected void loadAcciones() {

@@ -21,7 +21,7 @@
 <%@ taglib prefix="cmz" uri="http://comerzzia.com/taglib" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:useBean id="paramBuscarUsuarios" type="com.comerzzia.core.persistencia.usuarios.ParametrosBuscarUsuariosBean" scope="session" />
+<jsp:useBean id="paramBuscarLenguajes" type="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean" scope="session" />
 <jsp:useBean id="paginaResultados" class="com.comerzzia.core.util.paginacion.PaginaResultados" scope="request" />
 <jsp:useBean id="permisos" class="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,7 +49,7 @@
         <cmz:cabeceraPanelCMZ titulo="${permisos.accionMenu.titulo}" icono="${permisos.accionMenu.icono}">
           <cmz:acciones numAccionesVisibles="1">
             <c:if test="${permisos.puedeAñadir}">
-			  <cmz:accionNuevoRegistro onclick="alta()" descripcion="Alta de un nuevo usuario"/>	            
+			  <cmz:accionNuevoRegistro onclick="alta()" descripcion="Alta de un nuevo lenguaje"/>	            
             </c:if>
             <cmz:accion titulo="Ver Permisos" icono="comun/images/iconos/i-key.gif" descripcion="Ver permisos efectivos del usuario" onclick="verPermisos(${permisos.accionMenu.idAccion})" />
             <c:if test="${permisos.puedeAdministrar}">
@@ -60,45 +60,37 @@
         
         <cmz:cuerpoPanelCMZ>
           <cmz:mensaje/>
-          <form id="frmDatos" name="frmDatos" action="usuarios" method="post">
+          <form id="frmDatos" name="frmDatos" action="lenguajes" method="post">
             <input id="accion" name="accion" type="hidden" value="" />
             <input id="operacion" name="operacion" type="hidden" value="" />
             <input id="columna" name="columna" type="hidden" value="" />
             <input id="pagina" name="pagina" type="hidden" value="" />
             <input id="idObjeto" name="idObjeto" type="hidden" value="" />
             
-            <!-- Panel con los filtros que se quieren aplicar a la búsqueda -->
             <cmz:panel>
-              <cmz:cabeceraPanel titulo="Búsqueda de Usuarios"></cmz:cabeceraPanel>
+              <cmz:cabeceraPanel titulo="Búsqueda de Lenguajes"></cmz:cabeceraPanel>
               <cmz:cuerpoPanel>
                 <table cellpadding="0px" cellspacing="0px" border="0px">
                   <tr>
                     <td>
                       <table cellpadding="2px" cellspacing="2px" border="0px">
                         <tr>
-                          <td><cmz:etiqueta titulo="Usuario"/>:</td>
-                          <td><cmz:campoTexto id="usuario" valor="${paramBuscarUsuarios.usuario}" anchura="350px" longitudMaxima="100"/></td>
+                          <td><cmz:etiqueta titulo="Código"/>:</td>
+                          <!-- no sé porque si no uso el método el formulario sale en blanco -->
+                          <td><cmz:campoTexto id="codlengua" valor="${paramBuscarLenguajes.getCodLengua()}" anchura="350px" longitudMaxima="100"/></td>
 
-                          <td>
-      						<select class="campo" id="activo" name="activo">
-                          		<option value="" <c:if test="${paramBuscarUsuarios.activo == ''}">selected="selected"</c:if>><cmz:etiqueta titulo="Todos"/></option>
-                          		<option value="S" <c:if test="${paramBuscarUsuarios.activo == 'S'}">selected="selected"</c:if>><cmz:etiqueta titulo="Activos"/></option>
-                          		<option value="N" <c:if test="${paramBuscarUsuarios.activo == 'N'}">selected="selected"</c:if>><cmz:etiqueta titulo="Inactivos"/></option>
-                          	</select>
-                          </td>
                         
                           <!-- Separador del botón -->
                           <td width="150px"></td>
 		                  
 		                  <td>
-		                  <!-- botón consultar que ejecuta la búsqueda -->
 	                        <cmz:botonConsultar onclick="consultar();"/>
 	                      </td>
                         </tr>
                         
                         <tr>
                           <td><cmz:etiqueta titulo="Descripción"/>:</td>
-                          <td><cmz:campoTexto id="desUsuario" valor="${paramBuscarUsuarios.desUsuario}" anchura="350px" longitudMaxima="50"/></td>
+                          <td><cmz:campoTexto id="deslengua" valor="${paramBuscarLenguajes.deslengua}" anchura="350px" longitudMaxima="50"/></td>
                         </tr>
                       </table>
                     </td>
@@ -107,28 +99,27 @@
               </cmz:cuerpoPanel>
             </cmz:panel>
             
-            <!-- Panel que muestra una tabla con los resultados de la búsqueda -->
             <c:choose>
               <c:when test="${paginaResultados.pagina != null}">
                 <cmz:panel>
                   <cmz:cabeceraPanelResultados numPorPagina="${paginaResultados.tamañoPagina}"></cmz:cabeceraPanelResultados>
                   <cmz:cuerpoPanel>
                     <cmz:listaPaginada>
-                      <cmz:cabeceraListaPaginada ordenActual="${paramBuscarUsuarios.orden}">
-                        <cmz:itemCabeceraListaPaginada nombre="Usuario" columna="1" ordenColumna="USUARIO"></cmz:itemCabeceraListaPaginada>
-                        <cmz:itemCabeceraListaPaginada nombre="Descripción" columna="2" ordenColumna="DESUSUARIO"></cmz:itemCabeceraListaPaginada>
+                      <cmz:cabeceraListaPaginada ordenActual="${paramBuscarLenguajes.orden}">
+                        <cmz:itemCabeceraListaPaginada nombre="Código" columna="1" ordenColumna="CODLENGUA"></cmz:itemCabeceraListaPaginada>
+                        <cmz:itemCabeceraListaPaginada nombre="Descripción" columna="2" ordenColumna="DESLENGUA"></cmz:itemCabeceraListaPaginada>
                         <cmz:itemCabeceraListaPaginada nombre="Acciones" estilo="text-align: center;"></cmz:itemCabeceraListaPaginada>
                       </cmz:cabeceraListaPaginada>
-                      <cmz:contenidoListaPaginada variable="usuario" paginaResultados="${paginaResultados}">
-                        <cmz:itemContenidoListaPaginada valor="${usuario.usuario}" onclick="ver('${usuario.idUsuario}');"></cmz:itemContenidoListaPaginada>
-                        <cmz:itemContenidoListaPaginada valor="${usuario.desUsuario}"></cmz:itemContenidoListaPaginada>
+                      <cmz:contenidoListaPaginada variable="lenguaje" paginaResultados="${paginaResultados}">
+                        <cmz:itemContenidoListaPaginada valor="${lenguaje.codlengua}" onclick="ver('${lenguaje.codlengua}');"></cmz:itemContenidoListaPaginada>
+                        <cmz:itemContenidoListaPaginada valor="${lenguaje.deslengua}"></cmz:itemContenidoListaPaginada>
                         <cmz:acciones alineacion="center">
-                          <cmz:accion icono="comun/images/iconos/i-busca.gif" onclick="ver('${usuario.idUsuario}');" descripcion="Ver Usuario"></cmz:accion>
+                          <cmz:accion icono="comun/images/iconos/i-busca.gif" onclick="ver('${lenguaje.codlengua}');" descripcion="Ver Usuario"></cmz:accion>
                           <c:if test="${permisos.puedeEditar}">
-                            <cmz:accion icono="comun/images/iconos/i-edit.gif" onclick="editar('${usuario.idUsuario}');" descripcion="Editar Usuario"></cmz:accion>
+                            <cmz:accion icono="comun/images/iconos/i-edit.gif" onclick="editar('${lenguaje.codlengua}');" descripcion="Editar Usuario"></cmz:accion>
                           </c:if>
                           <c:if test="${permisos.puedeEliminar}">
-                            <cmz:accion icono="comun/images/iconos/i-cancel.gif" onclick="eliminar('${usuario.idUsuario}');" descripcion="Eliminar Usuario"></cmz:accion>
+                            <cmz:accion icono="comun/images/iconos/i-cancel.gif" onclick="eliminar('${lenguaje.codlengua}');" descripcion="Eliminar Usuario"></cmz:accion>
                           </c:if>
                         </cmz:acciones>
                       </cmz:contenidoListaPaginada>
