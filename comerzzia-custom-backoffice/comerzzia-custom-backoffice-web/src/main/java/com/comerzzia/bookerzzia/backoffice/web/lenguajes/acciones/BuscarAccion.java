@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
-import com.comerzzia.bookerzzia.backoffice.services.lenguajes.ILenguajeService;
+import com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeService;
 import com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys;
 import com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean;
 import com.comerzzia.core.servicios.sesion.DatosSesionBean;
@@ -23,7 +23,7 @@ public class BuscarAccion extends Accion {
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/buscar/jsp/buscar.jsp", Vista.INTERNA);
 
 	@Autowired
-	ILenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O
+	LenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O
 
 	@Override
 	public String getNombre() {

@@ -21,3 +21,6 @@
 1618930825729	Delete elements
 1618931316983	Delete element
 1618951667063	Delete elements
+1618953913505	Rename type 'ILenguajeService'
+1618954491280	Rename local variable 'lenguajeParameters'
+1618954573074	Rename local variable 'lenguajeExample'

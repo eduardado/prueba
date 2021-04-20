@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample;
+import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample.Criteria;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeMapper;
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean;
-import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample.Criteria;
 import com.comerzzia.core.servicios.sesion.IDatosSesion;
 import com.comerzzia.core.util.base.Estado;
 import com.comerzzia.core.util.paginacion.PaginaResultados;
@@ -20,53 +20,41 @@ import com.comerzzia.core.util.paginacion.PaginaResultados;
 import jxl.common.Logger;
 
 @Service
-public class LenguajeServiceImpl implements ILenguajeService {
+public class LenguajeServiceImpl implements LenguajeService {
 
 	protected static Logger log = Logger.getLogger(LenguajeServiceImpl.class);
 
 	@Autowired
 	LenguajeMapper lenguajeMapper;
 
-	// la consulta por parámetros devuelve una PaginaResultados
-	// necesita que le demos un objeto que herede de la clase ParametrosBuscarBean
 	@Override
-	public PaginaResultados consultar(ParametrosBuscarLenguajesBean lenguajeParameters, IDatosSesion datosSesion) throws LenguajeException {
+	public PaginaResultados consultar(ParametrosBuscarLenguajesBean param, IDatosSesion datosSesion) throws LenguajeException {
 		log.debug("consultar() - Consultando lenguajes");
 
-		LenguajeExample lenguajeExample = new LenguajeExample();
+		LenguajeExample example = new LenguajeExample();
 
-		// para construir los where con mybatis usamos la clase Criteria que es una clase estática
-		// que crea Mybatis con cada modelo en la parte Example
-		// or() == createCriteria()
-		// importar Criteria del modelo
-		Criteria criteria = lenguajeExample.or().andUidInstanciaEqualTo(datosSesion.getUidInstancia());
+		Criteria criteria = example.or().andUidInstanciaEqualTo(datosSesion.getUidInstancia());
 
 		// CODLENGUA
-
-		if (StringUtils.isNotBlank(lenguajeParameters.getCodlengua())) {
-			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getCodlengua() + "%");
+		if (StringUtils.isNotBlank(param.getCodlengua())) {
+			criteria.andCodlenguaLikeInsensitive("%" + param.getCodlengua() + "%");
 		}
 
 		// DESLENGUA
-		if (StringUtils.isNotBlank(lenguajeParameters.getDeslengua())) {
-			criteria.andCodlenguaLikeInsensitive("%" + lenguajeParameters.getDeslengua() + "%");
+		if (StringUtils.isNotBlank(param.getDeslengua())) {
+			criteria.andDeslenguaLikeInsensitive("%" + param.getDeslengua() + "%");
 		}
 
-		lenguajeExample.setOrderByClause(lenguajeParameters.getOrden());
-		if (lenguajeParameters.getNumPagina() == 0) {
-			lenguajeParameters.setNumPagina(1);
+		example.setOrderByClause(param.getOrden());
+		if (param.getNumPagina() == 0) {
+			param.setNumPagina(1);
 		}
 
-		// array que contiene objetos Lenguaje, el tamaño del array es el tamaño de la página
-		// que es lo mismo que el número de resultados por página
-		List<Lenguaje> resultados = new ArrayList<Lenguaje>(lenguajeParameters.getTamañoPagina());
-
-		// PaginaResultados usa la clase anterior (resultados por página) y además
-		// una clase con los atributos de Lenguaje + atributos tamañoPagina, numPagina y orden
-		PaginaResultados paginaResultados = new PaginaResultados(lenguajeParameters, resultados); // TODO porqué no instanciamos un ParametrosBuscarLenguajesBean?
+		List<Lenguaje> resultados = new ArrayList<Lenguaje>(param.getTamañoPagina());
+		PaginaResultados paginaResultados = new PaginaResultados(param, resultados); // TODO porqué no instanciamos un ParametrosBuscarLenguajesBean?
 
 		// todos los lenguajes
-		List<Lenguaje> lenguajes = lenguajeMapper.selectByExample(lenguajeExample);
+		List<Lenguaje> lenguajes = lenguajeMapper.selectByExample(example);
 
 		// no sé cómo funciona esto pero creo que setea los índices en función del nº de lenguajes que hay
 		Integer fromIndex = paginaResultados.getInicio() - 1;

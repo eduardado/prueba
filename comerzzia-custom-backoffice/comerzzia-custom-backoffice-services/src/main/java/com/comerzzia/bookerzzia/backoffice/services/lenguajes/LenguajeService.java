@@ -5,7 +5,7 @@ import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBusca
 import com.comerzzia.core.servicios.sesion.IDatosSesion;
 import com.comerzzia.core.util.paginacion.PaginaResultados;
 
-public interface ILenguajeService {
+public interface LenguajeService {
 
 	PaginaResultados consultar(ParametrosBuscarLenguajesBean param, IDatosSesion datosSesion) throws LenguajeException;
 
@@ -18,6 +18,6 @@ public interface ILenguajeService {
 	void modificar(Lenguaje lenguaje, IDatosSesion datosSesion)throws LenguajeException;
 
 	//TODO duda : no entiendo por qué modificar usa el objeto lenguaje y eliminar usa código 
-	void eliminar(String codLenguaje, IDatosSesion datosSesion)throws LenguajeException;
+	void eliminar(String codlengua, IDatosSesion datosSesion)throws LenguajeException;
 
 }
