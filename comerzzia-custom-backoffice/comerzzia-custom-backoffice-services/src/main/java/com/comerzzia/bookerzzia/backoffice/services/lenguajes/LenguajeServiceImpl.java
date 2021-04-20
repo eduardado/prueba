@@ -51,7 +51,8 @@ public class LenguajeServiceImpl implements LenguajeService {
 		}
 
 		List<Lenguaje> resultados = new ArrayList<Lenguaje>(param.getTamañoPagina());
-		PaginaResultados paginaResultados = new PaginaResultados(param, resultados); // TODO porqué no instanciamos un ParametrosBuscarLenguajesBean?
+		PaginaResultados paginaResultados = new PaginaResultados(param, resultados); // TODO porqué no instanciamos un
+		                                                                             // ParametrosBuscarLenguajesBean?
 
 		// todos los lenguajes
 		List<Lenguaje> lenguajes = lenguajeMapper.selectByExample(example);
@@ -73,24 +74,25 @@ public class LenguajeServiceImpl implements LenguajeService {
 
 	// consulta por clave primaria
 	@Override
-	public Lenguaje consultar(String codLengua, IDatosSesion datosSession) throws LenguajeNotFoundException, LenguajeException {
+	public Lenguaje consultar(String codlengua, IDatosSesion datosSession) throws LenguajeNotFoundException, LenguajeException {
 
-		log.debug("consultar() - consultando lenguaje con código: " + codLengua);
+		log.debug("consultar() - consultando lenguaje con código: " + codlengua);
 
 		try {
 			// se crea el objeto que representa la clave primaria
-			LenguajeKey lenguajeKey = new LenguajeKey();
-			lenguajeKey.setUidInstancia(datosSession.getUidInstancia());
-			lenguajeKey.setCodlengua(codLengua);
+			LenguajeKey key = new LenguajeKey();
+			key.setUidInstancia(datosSession.getUidInstancia());
+			key.setCodlengua(codlengua);
 
 			// se hace la consulta usando el mapper y se le pasa el objeto-clave primaria
-			Lenguaje lenguaje = lenguajeMapper.selectByPrimaryKey(lenguajeKey);
+			Lenguaje lenguaje = lenguajeMapper.selectByPrimaryKey(key);
 
 			// control de errores
 			if (lenguaje == null) {
-				String msg = "No se ha encontrado el lenguaje";
+				String msg = "No se ha encontrado el lenguaje: " + codlengua;
 				log.info("consultar() - " + msg);
-				throw new LenguajeNotFoundException(msg);
+				throw new LenguajeNotFoundException(msg); // TODO si no encuentra el lenguaje el método se sale por
+				                                          // aquí?
 			}
 
 			return lenguaje;
@@ -113,11 +115,11 @@ public class LenguajeServiceImpl implements LenguajeService {
 	@Override
 	public void salvar(Lenguaje lenguaje, IDatosSesion datosSession) throws LenguajeException {
 
-		switch (lenguaje.getEstadoBean()) {
+		switch (lenguaje.getEstadoBean()) { // TODO me encanta esta implementación
 			case Estado.NUEVO:
-
 				crear(lenguaje, datosSession);
 				break;
+				
 			case Estado.MODIFICADO:
 				modificar(lenguaje, datosSession);
 				break;
@@ -127,17 +129,16 @@ public class LenguajeServiceImpl implements LenguajeService {
 
 	@Override
 	public void crear(Lenguaje lenguaje, IDatosSesion datosSesion) throws LenguajeException {
-		log.debug("crear() - creando nuevo lenguaje");
 
 		try {
+			log.debug("crear() - creando nuevo lenguaje");
 			lenguaje.setUidInstancia(datosSesion.getUidInstancia());
 			lenguajeMapper.insert(lenguaje);
 		}
 		catch (Exception e) {
-
-			String message = "crear() - no se ha podido crear lenguaje";
-			log.error(message);
-			throw new LenguajeException(message, e);
+			String msg = "crear() - no se ha podido crear lenguaje";
+			log.error(msg + ": " + e.getMessage());
+			throw new LenguajeException(msg, e);
 		}
 
 	}
@@ -145,17 +146,19 @@ public class LenguajeServiceImpl implements LenguajeService {
 	@Override
 	public void modificar(Lenguaje lenguaje, IDatosSesion datosSesion) throws LenguajeException {
 
-		log.debug("modificar() - modificando lenguaje: " + lenguaje.getDeslengua());
+		log.debug("modificar() - modificando el lenguaje: " + lenguaje.getCodlengua());
 
 		try {
 			lenguaje.setUidInstancia(datosSesion.getUidInstancia());
-			lenguajeMapper.updateByPrimaryKey(lenguaje); // TODO cómo sabe aquí que el objeto lenguaje un LenguajeKey ??? de hecho no lo es no?
+			lenguajeMapper.updateByPrimaryKey(lenguaje); // TODO cómo sabe aquí que el objeto lenguaje un LenguajeKey
+			                                             // ??? de hecho no lo es no?
 			// Lenguaje es una subclase de LenguajeKey. Por lo que podremos usar updateByPrimaryKey
 		}
 		catch (Exception e) {
 			String msg = "No se ha podido modificar lenguaje";
 			log.error(msg + ":" + e.getMessage()); // en el log mostramos tanto nuestro mensaje personalizado como el
-			throw new LenguajeException(msg,e);
+			
+			throw new LenguajeException(msg, e);
 		}
 
 	}
@@ -171,7 +174,7 @@ public class LenguajeServiceImpl implements LenguajeService {
 			lenguajeMapper.deleteByPrimaryKey(key); // by primary key??
 		}
 		catch (Exception e) {
-			String msg = "No se ha podido eliminar lenguaje";
+			String msg = "eliminar() - No se ha podido eliminar lenguaje";
 			log.error(msg + ":" + e.getMessage());
 			throw new LenguajeException(msg, e); // mostrará tanto el mensaje como la causa del error
 		}

@@ -24,3 +24,6 @@
 1618953913505	Rename type 'ILenguajeService'
 1618954491280	Rename local variable 'lenguajeParameters'
 1618954573074	Rename local variable 'lenguajeExample'
+1618955358718	Rename local variable 'codLengua'
+1618955392358	Rename local variable 'lenguajeKey'
+1618955745918	Rename local variable 'message'
