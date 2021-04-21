@@ -4,61 +4,67 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
-import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje;
+import com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeException;
 import com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeNotFoundException;
 import com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeService;
 import com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys;
+import com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean;
 import com.comerzzia.core.servicios.sesion.DatosSesionBean;
+import com.comerzzia.core.util.base.Estado;
 import com.comerzzia.web.base.Accion;
 import com.comerzzia.web.base.Vista;
 import com.comerzzia.web.base.WebKeys;
 
-// Esta clase sirve para devolver la vista de detalle del registro seleccionado
-public class VerAccion extends Accion{
+public class EditarAccion extends Accion{
 	
-	protected static Logger log = Logger.getLogger(VerAccion.class);
+	protected static Logger log = Logger.getLogger(EditarAccion.class);
 	
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/mantenimiento/jsp/lenguaje.jsp", Vista.INTERNA);
+	// TODO por qué no guardar todas las páginas en un WebKeysVistas? 
 	
 	@Autowired
-	private LenguajeService lenguajeService;
-
+	LenguajeService lenguajeService;
 
 	@Override
 	public String getNombre() {
-		return "ver";
+		return "editar";
 	}
-
+	
 	@Override
 	public Vista ejecutar(HttpServletRequest request) {
 		HttpSession sesion = request.getSession();
 		DatosSesionBean datosSesion = (DatosSesionBean) sesion.getAttribute(WebKeys.DATOS_SESION);
 		
 		try {
+			// Comprueba los permisos de la acción
+			PermisosEfectivosAccionBean permisos = datosSesion.getPermisosCache(this.getAccionMenu()); // TODO duda: este this porqué
+			if(!permisos.isPuedeEditar()) {
+				return SIN_PERMISO;
+			}
+			
 			String codlengua = request.getParameter(WebKeys.ID_OBJETO);
-			Lenguaje lenguaje = lenguajeService.consultar(codlengua, datosSesion); // TODO duda: para hacer la consulta se le pasa el objeto datosSesion, para qué
-			sesion.setAttribute(CustomWebKeys.LENGUAJE, lenguaje); // se asigna a la sesión http el objeto lenguaje activo
+			Lenguaje lenguaje = lenguajeService.consultar(codlengua, datosSesion);
+			lenguaje.setEstadoBean(Estado.MODIFICADO); // lo diferencia de alta acción en que está modificado en luegar de nuevo
+			lenguaje.setEnEdicion(true);
+			
+			sesion.setAttribute(CustomWebKeys.LENGUAJE, lenguaje);
 			
 			return NEXT_PAGE;
 		}
 		catch (LenguajeNotFoundException e) {
-			// TODO duda: porqué así?
-			String errorMsg = datosSesion.getTranslation().getText("No se ha encontrado el registro"); 
-			setMensajeError(request, errorMsg);
-			Vista buscar = getControlador().getAccion("buscar").ejecutar(request); // TODO se obtiene la Vista "buscar"
-			return buscar;
+			setMensajeError(request, datosSesion.getTranslation().getText("No se ha encontrado el registro"));
+			
 		}
-		catch (Exception e) {
-			// Además del error, se le puede pasar al log la excepción en sí ¿Mostrará el error asociado a la Excepción?
-			Log.error("ejecutar() - Error obteniendo la vista del registro de lenguaje", e );
-			setError(request,e); // se asocia un error a la request
-			return ERROR_PAGE;
+		catch (LenguajeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		
+		return null;
 	}
+
 
 }

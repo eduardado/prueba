@@ -72,7 +72,6 @@
         <cmz:cabeceraPanelCMZ titulo="${permisos.accionMenu.titulo}" icono="${permisos.accionMenu.icono}">
           <cmz:acciones numAccionesVisibles="5">
             <c:choose>
-            <!-- donde está este atributo -->
               <c:when test="${!lenguaje.enEdicion}">
                 <cmz:accion icono="comun/images/iconos/i-volver.gif" onclick="volver();" titulo="Volver" descripcion="Volver"></cmz:accion>
                 <c:if test="${permisos.puedeEditar}">
@@ -108,14 +107,14 @@
                   <tr>
                     <td><cmz:etiqueta titulo="Código"/>:</td>
                     <td>
-                      <cmz:campoTexto id="codlengua" valor="${lengua.codlengua}" requerido="true" anchura="130px" longitudMaxima="6"
+                      <cmz:campoTexto id="codlengua" valor="${lenguaje.codlengua}" requerido="true" anchura="130px" longitudMaxima="6"
                                         editable="${lenguaje.estadoNuevo}" soloLectura="${!lenguaje.estadoNuevo}"/>
                     </td>
                   </tr>
                   <tr>
                     <td><cmz:etiqueta titulo="Descripción"/>:</td>
                     <td>
-                      <cmz:campoTexto id="deslengua" valor="${lengua.deslengua}" requerido="true" anchura="400px" longitudMaxima="20"
+                      <cmz:campoTexto id="deslengua" valor="${lenguaje.deslengua}" requerido="true" anchura="400px" longitudMaxima="20"
                                         editable="${lenguaje.enEdicion}" soloLectura="${!lenguaje.enEdicion}"/>
                     </td>
                   </tr>

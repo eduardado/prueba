@@ -40,7 +40,7 @@
     
     <script type="text/javascript">
         function inicio() {
-        	setFoco("usuario");
+        	setFoco("codlengua");
         }
     </script>
   </head>
@@ -115,12 +115,12 @@
                         <cmz:itemContenidoListaPaginada valor="${lenguaje.codlengua}" onclick="ver('${lenguaje.codlengua}');"></cmz:itemContenidoListaPaginada>
                         <cmz:itemContenidoListaPaginada valor="${lenguaje.deslengua}"></cmz:itemContenidoListaPaginada>
                         <cmz:acciones alineacion="center">
-                          <cmz:accion icono="comun/images/iconos/i-busca.gif" onclick="ver('${lenguaje.codlengua}');" descripcion="Ver Usuario"></cmz:accion>
+                          <cmz:accion icono="comun/images/iconos/i-busca.gif" onclick="ver('${lenguaje.codlengua}');" descripcion="Ver Lenguaje"></cmz:accion>
                           <c:if test="${permisos.puedeEditar}">
-                            <cmz:accion icono="comun/images/iconos/i-edit.gif" onclick="editar('${lenguaje.codlengua}');" descripcion="Editar Usuario"></cmz:accion>
+                            <cmz:accion icono="comun/images/iconos/i-edit.gif" onclick="editar('${lenguaje.codlengua}');" descripcion="Editar Lenguaje"></cmz:accion>
                           </c:if>
                           <c:if test="${permisos.puedeEliminar}">
-                            <cmz:accion icono="comun/images/iconos/i-cancel.gif" onclick="eliminar('${lenguaje.codlengua}');" descripcion="Eliminar Usuario"></cmz:accion>
+                            <cmz:accion icono="comun/images/iconos/i-cancel.gif" onclick="eliminar('${lenguaje.codlengua}');" descripcion="Eliminar Lenguaje"></cmz:accion>
                           </c:if>
                         </cmz:acciones>
                       </cmz:contenidoListaPaginada>
