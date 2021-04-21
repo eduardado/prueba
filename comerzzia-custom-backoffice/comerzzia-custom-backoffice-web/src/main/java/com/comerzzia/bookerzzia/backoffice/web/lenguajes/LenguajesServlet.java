@@ -18,7 +18,7 @@ public class LenguajesServlet extends ControladorServlet{
 	@Override
 	protected void loadAcciones() {
 		/*
-		 * Servlets necesarios para la Vista de búsqueda
+		 * Acciones necesarias para la Vista de búsqueda
 		 */
 		this.añadirAccionDefault(new EjecutarAccion()); // por qué el this aquí? no es redundante?
 		this.añadirAccion(new BuscarAccion());
