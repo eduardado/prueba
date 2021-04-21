@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje"/>
     <fullyQualifiedTypeName name="jxl.common.Logger"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeService"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample"/>
@@ -17,23 +16,24 @@
     <fullyQualifiedTypeName name="com.comerzzia.web.base.ControladorServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.EjecutarAccion"/>
-    <fullyQualifiedTypeName name="com.comerzzia.web.base.Accion"/>
     <fullyQualifiedTypeName name="org.jfree.util.Log"/>
     <fullyQualifiedTypeName name="org.glassfish.hk2.utilities.reflection.Logger"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.BuscarAccion"/>
     <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeServiceImpl"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="com.comerzzia.core.servicios.sesion.DatosSesionBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ParametrosBuscarLenguajesBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.paginacion.PaginaResultados"/>
     <fullyQualifiedTypeName name="com.comerzzia.taglib.WebKeys"/>
-    <fullyQualifiedTypeName name="com.comerzzia.web.base.WebKeys"/>
-    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.lenguajes.LenguajesService"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.ILenguajeService"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.MantenimientoBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.ParametrosBuscarBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.web.base.Accion"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.comerzzia.core.servicios.sesion.DatosSesionBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys"/>
+    <fullyQualifiedTypeName name="com.comerzzia.web.base.WebKeys"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje"/>
 </qualifiedTypeNameHistroy>
