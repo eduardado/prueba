@@ -21,3 +21,7 @@
 1618999495025	Extract local variable 'text'
 1619001326859	Extract local variable 'errorMsg'
 1619001474271	Extract local variable 'ejecutar'
+1619002323210	Move 'usuario.jsp' to 'jsp'
+1619002547077	Delete element
+1619003877953	Rename resource 'pais.jsp'
+1619003889752	Rename resource 'lengua.jsp'

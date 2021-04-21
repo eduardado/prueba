@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="jxl.common.Logger"/>
-    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeService"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample.Criteria"/>
     <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
@@ -16,7 +15,6 @@
     <fullyQualifiedTypeName name="com.comerzzia.web.base.ControladorServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.EjecutarAccion"/>
-    <fullyQualifiedTypeName name="org.jfree.util.Log"/>
     <fullyQualifiedTypeName name="org.glassfish.hk2.utilities.reflection.Logger"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.lenguajes.acciones.BuscarAccion"/>
     <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
@@ -30,10 +28,14 @@
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.MantenimientoBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.util.base.ParametrosBuscarBean"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.ParametrosBuscarLenguajesBean"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.services.lenguajes.LenguajeService"/>
     <fullyQualifiedTypeName name="com.comerzzia.web.base.Accion"/>
+    <fullyQualifiedTypeName name="com.comerzzia.web.base.Vista"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="com.comerzzia.core.servicios.sesion.DatosSesionBean"/>
+    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje"/>
     <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.web.tags.CustomWebKeys"/>
     <fullyQualifiedTypeName name="com.comerzzia.web.base.WebKeys"/>
-    <fullyQualifiedTypeName name="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje"/>
+    <fullyQualifiedTypeName name="org.jfree.util.Log"/>
 </qualifiedTypeNameHistroy>
