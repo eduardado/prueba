@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE project>
-<project default="generate">
-  <target name="generate">
-    <mybatis.generate configfile="D:\worskpaces\comerzzia\comerzzia-custom-backoffice\comerzzia-custom-backoffice-services\src\main\java\com\comerzzia\bookerzzia\backoffice\persistence\lenguajes\MyBatisGenerator.xml" />
-  </target>
-</project>

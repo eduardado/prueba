@@ -17,7 +17,7 @@ public class EliminarAccion extends Accion{
 	
 protected static Logger log = Logger.getLogger(SalvarAccion.class);
 	
-	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/mantenimiento/jsp/lenguaje.jsp", Vista.INTERNA);
+	private static final Vista RETURN = new Vista("backoffice/lenguajes/mantenimiento/jsp/lenguaje.jsp", Vista.INTERNA);
 	
 	@Autowired
 	LenguajeService lenguajeService;
@@ -39,9 +39,12 @@ protected static Logger log = Logger.getLogger(SalvarAccion.class);
 			String codelengua = request.getParameter(WebKeys.ID_OBJETO);
 			lenguajeService.eliminar(codelengua, datosSesion);
 			
+			// TODO duda : muestra por pantalla al usuario (sale una imagen de error...?
 			setMensaje(request,datosSesion.getTranslation().getText("El lenguaje se ha borrado correctamente"));
 			
-			return getControlador().getAccion("busca").ejecutar(request);
+			return getControlador().getAccion("buscar").ejecutar(request);
+			
+//			return RETURN;
 		}
 		catch (Exception e) {
 			log.error("Ha ocurrido un error",e);

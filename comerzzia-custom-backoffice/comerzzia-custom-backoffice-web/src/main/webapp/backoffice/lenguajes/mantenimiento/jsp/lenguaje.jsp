@@ -21,7 +21,7 @@
 <%@ taglib prefix="cmz" uri="http://comerzzia.com/taglib" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:useBean id="lenguaje" type="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje" scope="session" />
+<jsp:useBean id="lenguaje" class="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje" scope="session" />
 <jsp:useBean id="permisos" class="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
