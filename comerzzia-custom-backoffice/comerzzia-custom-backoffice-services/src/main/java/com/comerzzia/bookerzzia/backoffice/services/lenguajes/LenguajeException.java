@@ -3,6 +3,11 @@ package com.comerzzia.bookerzzia.backoffice.services.lenguajes;
 
 public class LenguajeException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3157031972893909572L;
+
 	public LenguajeException() {
 		super();
 	}

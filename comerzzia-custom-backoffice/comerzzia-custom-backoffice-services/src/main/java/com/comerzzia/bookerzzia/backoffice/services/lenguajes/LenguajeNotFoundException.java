@@ -3,6 +3,11 @@ package com.comerzzia.bookerzzia.backoffice.services.lenguajes;
 
 public class LenguajeNotFoundException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2578074011384528664L;
+
 	public LenguajeNotFoundException() {
 		super();
 	}

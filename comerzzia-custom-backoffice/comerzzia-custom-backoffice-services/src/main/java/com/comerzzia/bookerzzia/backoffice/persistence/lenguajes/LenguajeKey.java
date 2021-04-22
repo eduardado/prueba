@@ -3,7 +3,12 @@ package com.comerzzia.bookerzzia.backoffice.persistence.lenguajes;
 import com.comerzzia.core.util.base.MantenimientoBean;
 
 public class LenguajeKey extends MantenimientoBean{
-    private String uidInstancia;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3286915326160189973L;
+
+	private String uidInstancia;
 
     private String codlengua;
 

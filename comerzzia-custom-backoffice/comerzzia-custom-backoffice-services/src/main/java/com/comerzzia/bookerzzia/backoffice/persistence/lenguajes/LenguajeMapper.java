@@ -1,8 +1,5 @@
 package com.comerzzia.bookerzzia.backoffice.persistence.lenguajes;
 
-import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje;
-import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample;
-import com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
