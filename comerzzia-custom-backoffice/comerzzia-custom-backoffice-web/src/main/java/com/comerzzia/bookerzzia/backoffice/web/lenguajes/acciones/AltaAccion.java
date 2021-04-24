@@ -14,7 +14,7 @@ import com.comerzzia.web.base.Vista;
 public class AltaAccion extends Accion {
 
 	protected static final Logger log = Logger.getLogger(AltaAccion.class);
-	// TODO duda: cómo sería una vista externa?
+	
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/mantenimiento/jsp/lenguaje.jsp", Vista.INTERNA);
 
 	@Override

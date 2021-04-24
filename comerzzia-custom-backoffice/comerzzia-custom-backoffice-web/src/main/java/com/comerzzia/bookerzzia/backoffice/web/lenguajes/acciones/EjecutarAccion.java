@@ -56,7 +56,7 @@ public class EjecutarAccion extends Accion {
 		catch (Exception e) {
 			String msg = "Ha ocurrido un error al cargar la pantalla";
 			
-			Log.error(msg + ":" + msg);
+			Log.error(msg + ":" + e);
 			setError(request, e); //TODO esto qué es??? imagino que socia un error a la request?
 			
 			return ERROR_PAGE;

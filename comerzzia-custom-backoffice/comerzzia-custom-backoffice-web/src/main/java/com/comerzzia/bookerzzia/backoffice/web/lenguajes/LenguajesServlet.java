@@ -25,15 +25,14 @@ public class LenguajesServlet extends ControladorServlet{
 		/*
 		 * Acciones necesarias para la Vista de búsqueda
 		 */
-		this.añadirAccionDefault(new EjecutarAccion()); // TODO  por qué el this aquí? no es redundante?
-		this.añadirAccion(new AltaAccion());
+		añadirAccionDefault(new EjecutarAccion()); // TODO no hace falta el this
+		añadirAccion(new AltaAccion());
 		//acciones de la vista de detalles
-		this.añadirAccion(new BuscarAccion());
-		this.añadirAccion(new EditarAccion());
-		this.añadirAccion(new EjecutarAccion());
-		this.añadirAccion(new EliminarAccion());
-		this.añadirAccion(new SalvarAccion());
-		this.añadirAccion(new VerAccion());
+		añadirAccion(new BuscarAccion());
+		añadirAccion(new EditarAccion());
+		añadirAccion(new EliminarAccion());
+		añadirAccion(new SalvarAccion());
+		añadirAccion(new VerAccion());
 		
 		
 		

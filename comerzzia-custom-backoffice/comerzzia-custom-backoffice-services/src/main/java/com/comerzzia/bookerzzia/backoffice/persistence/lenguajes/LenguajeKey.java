@@ -7,6 +7,13 @@ public class LenguajeKey extends MantenimientoBean{
 	 * 
 	 */
 	private static final long serialVersionUID = 3286915326160189973L;
+	
+	
+
+	public LenguajeKey() {
+		super();
+		super.setActivo(true);
+	}
 
 	private String uidInstancia;
 
@@ -30,6 +37,5 @@ public class LenguajeKey extends MantenimientoBean{
 
 	@Override
 	protected void initNuevoBean() {
-		
 	}
 }

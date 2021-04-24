@@ -129,11 +129,15 @@ public class LenguajeServiceImpl implements LenguajeService {
 
 	@Override
 	public void crear(Lenguaje lenguaje, IDatosSesion datosSesion) throws LenguajeException {
-
+		log.debug("crear() - creando nuevo lenguaje");
+		
 		try {
 			log.debug("crear() - creando nuevo lenguaje");
 			lenguaje.setUidInstancia(datosSesion.getUidInstancia());
-			lenguajeMapper.insert(lenguaje);
+//			lenguajeMapper.insert(lenguaje);
+			lenguajeMapper.insertSelective(lenguaje);
+			
+			
 		}
 		catch (Exception e) {
 			String msg = "crear() - no se ha podido crear lenguaje";

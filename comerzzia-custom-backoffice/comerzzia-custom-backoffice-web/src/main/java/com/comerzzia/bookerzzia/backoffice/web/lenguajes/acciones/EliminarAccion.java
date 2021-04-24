@@ -15,9 +15,8 @@ import com.comerzzia.web.base.WebKeys;
 
 public class EliminarAccion extends Accion{
 	
-protected static Logger log = Logger.getLogger(SalvarAccion.class);
+protected static Logger log = Logger.getLogger(EliminarAccion.class);
 	
-	private static final Vista RETURN = new Vista("backoffice/lenguajes/mantenimiento/jsp/lenguaje.jsp", Vista.INTERNA);
 	
 	@Autowired
 	LenguajeService lenguajeService;
@@ -29,7 +28,6 @@ protected static Logger log = Logger.getLogger(SalvarAccion.class);
 		DatosSesionBean datosSesion  = (DatosSesionBean) session.getAttribute(WebKeys.DATOS_SESION);
 		
 		try {
-			// permisos para eliminar?
 			PermisosEfectivosAccionBean permisos = datosSesion.getPermisosCache(this.getAccionMenu());
 			if(!permisos.isPuedeEliminar()) {
 				return SIN_PERMISO;
@@ -44,7 +42,6 @@ protected static Logger log = Logger.getLogger(SalvarAccion.class);
 			
 			return getControlador().getAccion("buscar").ejecutar(request);
 			
-//			return RETURN;
 		}
 		catch (Exception e) {
 			log.error("Ha ocurrido un error",e);

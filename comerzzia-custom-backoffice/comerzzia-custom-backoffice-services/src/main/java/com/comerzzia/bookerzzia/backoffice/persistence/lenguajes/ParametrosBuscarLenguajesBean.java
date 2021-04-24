@@ -2,9 +2,6 @@ package com.comerzzia.bookerzzia.backoffice.persistence.lenguajes;
 
 import com.comerzzia.core.util.base.ParametrosBuscarBean;
 
-// TODO SE ME HABÍA OLVIDADO mirar la base de datos para ver todos los campos
-// TODO los setters son to wapos
-// TODO los atributos tiene los string instanciados
 public class ParametrosBuscarLenguajesBean extends ParametrosBuscarBean {
 
 	private static final long serialVersionUID = 5761172894653714845L; // TODO OJO!
@@ -20,11 +17,13 @@ public class ParametrosBuscarLenguajesBean extends ParametrosBuscarBean {
 	public void setActivo(String activo) {
 		this.activo = (activo != null) ? activo : "";
 	}
+	
 
 	// setea el orden del Bean con la clave primaria
 	public ParametrosBuscarLenguajesBean() {
 		super.setOrden("CODLENGUA"); // TODO es necesario poner este super?
 	}
+
 
 	public String getCodlengua() {
 		return codlengua;

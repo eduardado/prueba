@@ -23,7 +23,7 @@ public class BuscarAccion extends Accion {
 	private static final Vista NEXT_PAGE = new Vista("backoffice/lenguajes/buscar/jsp/buscar.jsp", Vista.INTERNA);
 
 	@Autowired
-	LenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O
+	LenguajeService lenguajeService; // TODO se hace el autowired de la interfaz no de la implementación! O_O porque está apuntando a la implementación automáticamente
 
 	@Override
 	public String getNombre() {
@@ -43,7 +43,7 @@ public class BuscarAccion extends Accion {
 			// TODO en EjecutarAccion se hacía getPermisos en lugar de este método
 			PermisosEfectivosAccionBean permisos = datosSesion.getPermisosCache(this.getAccionMenu()); // TODO este
 			                                                                                           // this?
-			if (!permisos.isPuedeEjecutar()) {
+			if (!permisos.isPuedeEjecutar()) { // TODO revisar no será si puede buscar?
 				return SIN_PERMISO; // se devuelve la Vista sin permiso
 			}
 

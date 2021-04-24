@@ -35,7 +35,6 @@
     <cmz:head/>
     <script type="text/javascript" language="javascript" src="comun/js/comun.js"></script>
     <script type="text/javascript" language="javascript" src="comun/js/formulario.js"></script>
-    <!-- Éste script lo acabo de ver -->
     <script type="text/javascript" language="javascript" src="comun/js/ayudas.js"></script>
     
     <script type="text/javascript">

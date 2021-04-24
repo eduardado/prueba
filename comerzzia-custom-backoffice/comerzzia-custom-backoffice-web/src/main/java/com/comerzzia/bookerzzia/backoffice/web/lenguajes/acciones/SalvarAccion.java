@@ -44,7 +44,7 @@ public class SalvarAccion extends Accion{
 			Lenguaje lenguaje = (Lenguaje) sesion.getAttribute(CustomWebKeys.LENGUAJE); // la referencia al objeto se guarda en httpsesion
 			lenguaje.setCodlengua(request.getParameter("codlengua")); // para obtener el valor, se hace una petición al Servlet y se le pide el parámetro
 			lenguaje.setDeslengua(request.getParameter("deslengua"));
-			
+			lenguaje.setActivo(true); // TODO no funciona
 			lenguajeService.salvar(lenguaje, datosSesion); // guardamos en base de datos
 			
 			// liberamos recursos
@@ -53,6 +53,7 @@ public class SalvarAccion extends Accion{
 			try {
 				// vuelve a consultar el registro
 				lenguaje = lenguajeService.consultar(lenguaje.getCodlengua(), datosSesion);
+				sesion.setAttribute(CustomWebKeys.LENGUAJE, lenguaje); // TODO me faltaba asociar el lenguaje de nuevo a la sesión
 				setMensaje(request, datosSesion.getTranslation().getText("El lenguaje se ha salvado correctamente")); // AHHH ESTE ES EL MENSAJE ESE VERDE
 			}
 			catch (Exception e) {

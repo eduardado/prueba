@@ -44,8 +44,7 @@
 	    <javaModelGenerator targetPackage="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes" targetProject="comerzzia-custom-backoffice-services/src/main/java">
 	      <property name="enableSubPackages" value="false" />
 	      <property name="trimStrings" value="true" />
-	      <!-- esta línea no está en el vídeo -->
-<!-- 	      <property name="extendsClass" value="com.comerzzia.core.util.base.MantenimientoBean"/> -->
+	      <property name="extendsClass" value="com.comerzzia.core.util.base.MantenimientoBean"/>
 	     </javaModelGenerator>
 	    
 	    <sqlMapGenerator targetPackage="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes"  targetProject="comerzzia-custom-backoffice-services/src/main/java">
