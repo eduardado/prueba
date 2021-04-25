@@ -64,7 +64,8 @@ public class SalvarAccion extends Accion{
 			/*
 			 * DIOS MIO ME FALTABAN ESTAS DOS LÍNEAS Y NO FUNCIONABA NADA
 			 */
-			comunidad.setActivo(true); // TODO QUÉ HACE ESTO?????
+//			comunidad.setActivo(true); // TODO QUÉ HACE ESTO????? -> 
+			// No sé qué hace esto pero estaba en el constructor del modelo en el ejemplo de David
 			comService.salvar(comunidad, datosSesion);
 			
 			sesion.removeAttribute(CustomWebKeys.COMUNIDAD); // libera recursos

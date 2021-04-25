@@ -96,7 +96,6 @@
         <!-- formulario -->
         <cmz:cuerpoPanelCMZ>
           <cmz:mensaje/>
-          <!-- action: qué poner-> será esto por lo que están fallando los post? será el action el ejectuar del menu de acción de las tablas -->
           <form id="frmDatos" name="frmDatos" action="comunidades" method="post">
             <input id="accion" name="accion" type="hidden" value="" />
             <input id="idObjeto" name="idObjeto" type="hidden" value="${comunidad.codigo}" />

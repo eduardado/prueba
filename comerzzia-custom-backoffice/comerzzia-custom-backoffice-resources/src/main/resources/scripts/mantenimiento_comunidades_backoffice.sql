@@ -13,6 +13,7 @@ select * from cmz_bookerzzia.d_acciones_permisos_tbl dapt ;  -- permisos
 select * from cmz_bookerzzia.D_ACTIVIDADES_TBL;
 
 /*tabla a consultar en la pantalla*/
+truncate table cmz_bookerzzia.x_comunidades_autonomas_tbl;
 select * from cmz_bookerzzia.x_comunidades_autonomas_tbl xcat;
 
 

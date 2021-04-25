@@ -10,6 +10,14 @@ public class ComunidadBeanKey extends MantenimientoBean {
 
 	private String codigo;
 
+	/*
+	 * No sé para qué es esto
+	 */
+	public ComunidadBeanKey() {
+		super();
+		super.setActivo(true);
+	}
+
 	public String getUidActividad() {
 		return uidActividad;
 	}
