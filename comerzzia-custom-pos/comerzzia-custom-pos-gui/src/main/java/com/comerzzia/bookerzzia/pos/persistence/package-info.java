@@ -1,1 +1,0 @@
-package com.comerzzia.bookerzzia.pos.persistence;

@@ -33,7 +33,7 @@
         <ShowLoggedIn>false</ShowLoggedIn>
     </Interfaz>
     <login>BIENVENIDA</login>
-    <!-- <Skin>test</Skin> -->
+    <Skin>custom</Skin>
     <!-- <AccionInicio>210</AccionInicio> -->
 
     <InStoreEngine>
