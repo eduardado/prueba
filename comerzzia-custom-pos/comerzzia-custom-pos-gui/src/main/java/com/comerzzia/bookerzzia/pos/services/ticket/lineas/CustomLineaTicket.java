@@ -1,6 +1,7 @@
 package com.comerzzia.bookerzzia.pos.services.ticket.lineas;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
@@ -10,7 +11,7 @@ import com.comerzzia.bookerzzia.pos.services.ticket.lineas.binding.Binding;
 import com.comerzzia.pos.services.ticket.lineas.LineaTicket;
 
 /*
- * LineaTicket es prototype, cada vez que CustomLineaTicket se inyecte será una nueva instancia...
+ * Esta clase substituye a LineaTicket del standard. Añade el nodo <Binding> a cada línea del ticket de Venta
  */
 
 @Component
@@ -20,8 +21,8 @@ public class CustomLineaTicket extends LineaTicket {
 
 	private static final long serialVersionUID = 3937428355657945819L;
 
-	// TODO borrar isBinding si no lo uso
-	private Boolean isBinding; // si se activa es porque el usuario quiere añadir una encuadernación
+	@XmlTransient // TODO borrar isBinding si no lo uso ( de momento no se usa)
+	private Boolean isBinding; // true si el usuario quiere añadir una encuadernación
 
 	public CustomLineaTicket() {
 		isBinding = false;

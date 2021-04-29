@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebListener;
 
 import org.apache.log4j.Logger;
 
+
 @WebListener
 public class BackofficeInitServletContextListener extends com.comerzzia.web.listeners.BackofficeInitServletContextListener {
 
@@ -15,9 +16,8 @@ public class BackofficeInitServletContextListener extends com.comerzzia.web.list
 		log.info("Configuring custom services");
 		
 		super.contextInitialized(sce);
+
 		
-		// set custom services instances for static classes
-		// ComerzziaStandarServiceImpl.setCustomInstance(new MyCustomServiceImpl());
 	}
 
 	@Override

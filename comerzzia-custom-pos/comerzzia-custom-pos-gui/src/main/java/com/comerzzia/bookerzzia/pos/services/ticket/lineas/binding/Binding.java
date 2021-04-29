@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 
 import com.comerzzia.bookerzzia.pos.utils.PosKeys;
 /**
- * Esta clase representa la encuadernación
+ * Esta clase representa el nodo <Binding></Binding> 
+ * (Encuadernación en el modelo dentro de la capa de persistencia del backoffice)
  * @author eduar
  *
  */
@@ -65,14 +66,6 @@ public class Binding implements Cloneable, Serializable {
 		this.dedicatoria = (dedicatoria == null) ? "" : dedicatoria;
 	}
 	
-	/**
-	 * Resetea el binding
-	 */
-	public void reset() {
-		tapa = "";
-		subtitulo = "";
-		dedicatoria = "";
-	}
 
 	@Override
 	public String toString() {

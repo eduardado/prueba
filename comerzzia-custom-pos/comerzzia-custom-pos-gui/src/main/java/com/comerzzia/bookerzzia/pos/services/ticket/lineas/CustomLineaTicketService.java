@@ -22,15 +22,10 @@ public class CustomLineaTicketService extends LineasTicketServices {
 	protected Logger log = Logger.getLogger(getClass());
 
 	@Autowired
-	Binding binding; // Tengo un solo Binding para toda la aplicación porque no es prototype
+	Binding binding; 
 
 	@Autowired
 	CustomFacturacionArticulosController articulosController;
-
-	/*
-	 * No debería añadir una encuadernación vacía siempre a cada línea? </binding> o algo así? Podría rellenarse sólo si
-	 * hace falta
-	 */
 
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -42,10 +37,6 @@ public class CustomLineaTicketService extends LineasTicketServices {
 		if (linea instanceof CustomLineaTicket) {
 
 			((CustomLineaTicket) linea).setBinding(binding); // añade el binding
-			
-			// tengo que resetear binding fuera, para que cree la línea
-			
-//			binding.reset(); // resetea el binding para que la próxima línea no añada los mismos datos
 
 		}
 

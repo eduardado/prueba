@@ -21,7 +21,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 /**
  * @author eduar
- * Controlador de la ventana modal que aparece en la pantalla de ventas para poder añadir encuadernación
+ * Controlador de la ventana modal que puede lanzarse desde la pantalla de ventas 
+ * Permite añadir una encuadernación a cada libro.
  */
 @Component
 public class AddBindingController extends WindowController {
@@ -76,7 +77,7 @@ public class AddBindingController extends WindowController {
 	public void initializeForm() throws InitializeGuiException {
 		taDedicatoria.clear();
 		tfSubtitulo.clear();
-		cbTipo.setValue(TAPA_DURA);
+		cbTipo.setValue(TAPA_DURA); // opción por defecto (campo obligatorio)
 	}
 
 	@FXML

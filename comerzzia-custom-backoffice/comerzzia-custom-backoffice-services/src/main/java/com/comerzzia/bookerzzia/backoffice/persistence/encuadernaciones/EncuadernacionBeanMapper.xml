@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanMapper">
+  <resultMap id="BaseResultMap" type="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
+    <id column="UID_ACTIVIDAD" jdbcType="VARCHAR" property="uidActividad" />
+    <id column="CODALM" jdbcType="VARCHAR" property="codalm" />
+    <id column="ID_CLIE_ALBARAN" jdbcType="BIGINT" property="idClieAlbaran" />
+    <result column="TAPA" jdbcType="VARCHAR" property="tapa" />
+    <result column="SUBTITULO" jdbcType="VARCHAR" property="subtitulo" />
+    <result column="DEDICATORIA" jdbcType="VARCHAR" property="dedicatoria" />
+    <result column="HECHO" jdbcType="VARCHAR" property="hecho" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, TAPA, SUBTITULO, DEDICATORIA, HECHO
+  </sql>
+  <select id="selectByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from x_encuadernacion_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from x_encuadernacion_tbl
+    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+      and CODALM = #{codalm,jdbcType=VARCHAR}
+      and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanKey">
+    delete from x_encuadernacion_tbl
+    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+      and CODALM = #{codalm,jdbcType=VARCHAR}
+      and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample">
+    delete from x_encuadernacion_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
+    insert into x_encuadernacion_tbl (UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, 
+      TAPA, SUBTITULO, DEDICATORIA, 
+      HECHO)
+    values (#{uidActividad,jdbcType=VARCHAR}, #{codalm,jdbcType=VARCHAR}, #{idClieAlbaran,jdbcType=BIGINT}, 
+      #{tapa,jdbcType=VARCHAR}, #{subtitulo,jdbcType=VARCHAR}, #{dedicatoria,jdbcType=VARCHAR}, 
+      #{hecho,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
+    insert into x_encuadernacion_tbl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uidActividad != null">
+        UID_ACTIVIDAD,
+      </if>
+      <if test="codalm != null">
+        CODALM,
+      </if>
+      <if test="idClieAlbaran != null">
+        ID_CLIE_ALBARAN,
+      </if>
+      <if test="tapa != null">
+        TAPA,
+      </if>
+      <if test="subtitulo != null">
+        SUBTITULO,
+      </if>
+      <if test="dedicatoria != null">
+        DEDICATORIA,
+      </if>
+      <if test="hecho != null">
+        HECHO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uidActividad != null">
+        #{uidActividad,jdbcType=VARCHAR},
+      </if>
+      <if test="codalm != null">
+        #{codalm,jdbcType=VARCHAR},
+      </if>
+      <if test="idClieAlbaran != null">
+        #{idClieAlbaran,jdbcType=BIGINT},
+      </if>
+      <if test="tapa != null">
+        #{tapa,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitulo != null">
+        #{subtitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="dedicatoria != null">
+        #{dedicatoria,jdbcType=VARCHAR},
+      </if>
+      <if test="hecho != null">
+        #{hecho,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample" resultType="java.lang.Long">
+    select count(*) from x_encuadernacion_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update x_encuadernacion_tbl
+    <set>
+      <if test="record.uidActividad != null">
+        UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codalm != null">
+        CODALM = #{record.codalm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idClieAlbaran != null">
+        ID_CLIE_ALBARAN = #{record.idClieAlbaran,jdbcType=BIGINT},
+      </if>
+      <if test="record.tapa != null">
+        TAPA = #{record.tapa,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subtitulo != null">
+        SUBTITULO = #{record.subtitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dedicatoria != null">
+        DEDICATORIA = #{record.dedicatoria,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hecho != null">
+        HECHO = #{record.hecho,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update x_encuadernacion_tbl
+    set UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
+      CODALM = #{record.codalm,jdbcType=VARCHAR},
+      ID_CLIE_ALBARAN = #{record.idClieAlbaran,jdbcType=BIGINT},
+      TAPA = #{record.tapa,jdbcType=VARCHAR},
+      SUBTITULO = #{record.subtitulo,jdbcType=VARCHAR},
+      DEDICATORIA = #{record.dedicatoria,jdbcType=VARCHAR},
+      HECHO = #{record.hecho,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
+    update x_encuadernacion_tbl
+    <set>
+      <if test="tapa != null">
+        TAPA = #{tapa,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitulo != null">
+        SUBTITULO = #{subtitulo,jdbcType=VARCHAR},
+      </if>
+      <if test="dedicatoria != null">
+        DEDICATORIA = #{dedicatoria,jdbcType=VARCHAR},
+      </if>
+      <if test="hecho != null">
+        HECHO = #{hecho,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+      and CODALM = #{codalm,jdbcType=VARCHAR}
+      and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
+    update x_encuadernacion_tbl
+    set TAPA = #{tapa,jdbcType=VARCHAR},
+      SUBTITULO = #{subtitulo,jdbcType=VARCHAR},
+      DEDICATORIA = #{dedicatoria,jdbcType=VARCHAR},
+      HECHO = #{hecho,jdbcType=VARCHAR}
+    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+      and CODALM = #{codalm,jdbcType=VARCHAR}
+      and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from x_encuadernacion_tbl
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

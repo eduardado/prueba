@@ -19,7 +19,7 @@
   
   <logger name="com.comerzzia" level="INFO" />
   <logger name="com.comerzzia.pos.persistence" level="INFO" />
-  <logger name="com.comerzzia.pos" level="DEBUG" />
+  <logger name="com.comerzzia" level="DEBUG" />
   
   <root level="debug">
     <appender-ref ref="STDOUT" />
