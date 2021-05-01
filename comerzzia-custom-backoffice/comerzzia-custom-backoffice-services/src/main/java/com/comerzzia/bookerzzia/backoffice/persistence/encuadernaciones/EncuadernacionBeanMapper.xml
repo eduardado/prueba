@@ -5,6 +5,7 @@
     <id column="UID_ACTIVIDAD" jdbcType="VARCHAR" property="uidActividad" />
     <id column="CODALM" jdbcType="VARCHAR" property="codalm" />
     <id column="ID_CLIE_ALBARAN" jdbcType="BIGINT" property="idClieAlbaran" />
+    <id column="LINEA" jdbcType="INTEGER" property="linea" />
     <result column="TAPA" jdbcType="VARCHAR" property="tapa" />
     <result column="SUBTITULO" jdbcType="VARCHAR" property="subtitulo" />
     <result column="DEDICATORIA" jdbcType="VARCHAR" property="dedicatoria" />
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, TAPA, SUBTITULO, DEDICATORIA, HECHO
+    UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, LINEA, TAPA, SUBTITULO, DEDICATORIA, HECHO
   </sql>
   <select id="selectByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample" resultMap="BaseResultMap">
     select
@@ -92,12 +93,14 @@
     where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
       and CODALM = #{codalm,jdbcType=VARCHAR}
       and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+      and LINEA = #{linea,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanKey">
     delete from x_encuadernacion_tbl
     where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
       and CODALM = #{codalm,jdbcType=VARCHAR}
       and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+      and LINEA = #{linea,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample">
     delete from x_encuadernacion_tbl
@@ -107,11 +110,11 @@
   </delete>
   <insert id="insert" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
     insert into x_encuadernacion_tbl (UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, 
-      TAPA, SUBTITULO, DEDICATORIA, 
-      HECHO)
+      LINEA, TAPA, SUBTITULO, 
+      DEDICATORIA, HECHO)
     values (#{uidActividad,jdbcType=VARCHAR}, #{codalm,jdbcType=VARCHAR}, #{idClieAlbaran,jdbcType=BIGINT}, 
-      #{tapa,jdbcType=VARCHAR}, #{subtitulo,jdbcType=VARCHAR}, #{dedicatoria,jdbcType=VARCHAR}, 
-      #{hecho,jdbcType=VARCHAR})
+      #{linea,jdbcType=INTEGER}, #{tapa,jdbcType=VARCHAR}, #{subtitulo,jdbcType=VARCHAR}, 
+      #{dedicatoria,jdbcType=VARCHAR}, #{hecho,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
     insert into x_encuadernacion_tbl
@@ -124,6 +127,9 @@
       </if>
       <if test="idClieAlbaran != null">
         ID_CLIE_ALBARAN,
+      </if>
+      <if test="linea != null">
+        LINEA,
       </if>
       <if test="tapa != null">
         TAPA,
@@ -147,6 +153,9 @@
       </if>
       <if test="idClieAlbaran != null">
         #{idClieAlbaran,jdbcType=BIGINT},
+      </if>
+      <if test="linea != null">
+        #{linea,jdbcType=INTEGER},
       </if>
       <if test="tapa != null">
         #{tapa,jdbcType=VARCHAR},
@@ -180,6 +189,9 @@
       <if test="record.idClieAlbaran != null">
         ID_CLIE_ALBARAN = #{record.idClieAlbaran,jdbcType=BIGINT},
       </if>
+      <if test="record.linea != null">
+        LINEA = #{record.linea,jdbcType=INTEGER},
+      </if>
       <if test="record.tapa != null">
         TAPA = #{record.tapa,jdbcType=VARCHAR},
       </if>
@@ -202,6 +214,7 @@
     set UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
       CODALM = #{record.codalm,jdbcType=VARCHAR},
       ID_CLIE_ALBARAN = #{record.idClieAlbaran,jdbcType=BIGINT},
+      LINEA = #{record.linea,jdbcType=INTEGER},
       TAPA = #{record.tapa,jdbcType=VARCHAR},
       SUBTITULO = #{record.subtitulo,jdbcType=VARCHAR},
       DEDICATORIA = #{record.dedicatoria,jdbcType=VARCHAR},
@@ -229,6 +242,7 @@
     where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
       and CODALM = #{codalm,jdbcType=VARCHAR}
       and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+      and LINEA = #{linea,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean">
     update x_encuadernacion_tbl
@@ -239,6 +253,7 @@
     where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
       and CODALM = #{codalm,jdbcType=VARCHAR}
       and ID_CLIE_ALBARAN = #{idClieAlbaran,jdbcType=BIGINT}
+      and LINEA = #{linea,jdbcType=INTEGER}
   </update>
   <select id="selectByExampleWithRowbounds" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample" resultMap="BaseResultMap">
     select

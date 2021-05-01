@@ -16,29 +16,38 @@
     RESTRICTIONS.
 
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="cmz" uri="http://comerzzia.com/taglib" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="cmz" uri="http://comerzzia.com/taglib"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- esta librería da un error raro -->
 <%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/sjtl/fmt" %> --%>
 
-<jsp:useBean id="comunidad" class="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean" scope="session" />
-<jsp:useBean id="permisos" class="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean" scope="request" />
+<jsp:useBean id="comunidad"
+	class="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean"
+	scope="session" />
+<jsp:useBean id="permisos"
+	class="com.comerzzia.core.servicios.permisos.PermisosEfectivosAccionBean"
+	scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Comerzzia</title>
-    
-    <cmz:head/>
-    
-    <script type="text/javascript" language="javascript" src="comun/js/comun.js"></script>
-    <script type="text/javascript" language="javascript" src="comun/js/mantenimiento.js"></script>
-    <script type="text/javascript" language="javascript" src="comun/js/ayudas.js"></script>
-    <script type="text/javascript" language="javascript" src="comun/js/validacion.js"></script>
-    <script type="text/javascript">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Comerzzia</title>
+
+<cmz:head />
+
+<script type="text/javascript" language="javascript"
+	src="comun/js/comun.js"></script>
+<script type="text/javascript" language="javascript"
+	src="comun/js/mantenimiento.js"></script>
+<script type="text/javascript" language="javascript"
+	src="comun/js/ayudas.js"></script>
+<script type="text/javascript" language="javascript"
+	src="comun/js/validacion.js"></script>
+<script type="text/javascript">
         function inicio() {
             document.getElementById("codigo").focus();
         }
@@ -64,74 +73,84 @@
         	}
         }
     </script>
-  </head>
+</head>
 
 <!-- acciones de la pantalla -->
-  <body  onload="inicio();" onkeydown="keyDown(event);">
-    <cmz:main>
-      <cmz:panelCMZ>
-        <cmz:cabeceraPanelCMZ titulo="${permisos.accionMenu.titulo}" icono="${permisos.accionMenu.icono}">
-          <cmz:acciones numAccionesVisibles="5">
-            <c:choose>
-              <c:when test="${!comunidad.enEdicion}">
-                <cmz:accion icono="comun/images/iconos/i-volver.gif" onclick="volver();" titulo="Volver" descripcion="Volver"></cmz:accion>
-                <c:if test="${permisos.puedeEditar}">
-                  <cmz:accion icono="comun/images/iconos/i-edit.gif" onclick="editar();" titulo="Editar" descripcion="Editar Comunidad"></cmz:accion>
-                </c:if>
-                <c:if test="${permisos.puedeAñadir}">
-                  <cmz:accionNuevoRegistro onclick="alta();" descripcion="Añadir una nueva Comunidad"/>
-                </c:if>
-                <c:if test="${permisos.puedeEliminar}">
-                  <cmz:accion icono="comun/images/iconos/i-cancel.gif" onclick="eliminar();" titulo="Eliminar" descripcion="Eliminar Comunidad"></cmz:accion>
-                </c:if>
-              </c:when>
-              <c:otherwise>
-                <cmz:accionSalvar onclick="aceptar();"/>
-                <cmz:accionCancelar onclick="cancelar();"/>
-              </c:otherwise>
-            </c:choose>
-          </cmz:acciones>
-        </cmz:cabeceraPanelCMZ>
-        
-        <!-- formulario -->
-        <cmz:cuerpoPanelCMZ>
-          <cmz:mensaje/>
-          <form id="frmDatos" name="frmDatos" action="comunidades" method="post">
-            <input id="accion" name="accion" type="hidden" value="" />
-            <input id="idObjeto" name="idObjeto" type="hidden" value="${comunidad.codigo}" />
-            <input id="estadoObjeto" name="estadoObjeto" type="hidden" value="${comunidad.estadoBean}" />
-            
-            <cmz:panel>
-              <cmz:cabeceraPanel titulo="Datos de la Comunidad Autónoma"></cmz:cabeceraPanel>
-              <cmz:cuerpoPanel>
-                <table cellpadding="2px" cellspacing="2px" border="0px">
-                  <tr>
-                    <td><cmz:etiqueta titulo="Código"/>:</td>
-                    <td>
-                      <cmz:campoTexto id="codigo" valor="${comunidad.codigo}" requerido="true" anchura="200px" longitudMaxima="6"
-                                        editable="${comunidad.enEdicion	}" soloLectura="${!comunidad.enEdicion}"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><cmz:etiqueta titulo="Descripción"/>:</td>
-                    <td>
-                      <cmz:campoTexto id="descripcion" valor="${comunidad.descripcion}" requerido="true" anchura="200px" longitudMaxima="20"
-                                        editable="${comunidad.enEdicion}" soloLectura="${!comunidad.enEdicion}"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><cmz:etiqueta titulo="Idioma"/>:</td>
-                    <td>
-                      <cmz:campoTexto id="idioma" valor="${comunidad.idioma}" requerido="true" anchura="200px" longitudMaxima="20"
-                                        editable="${comunidad.enEdicion}" soloLectura="${!comunidad.enEdicion}"/>
-                    </td>
-                  </tr>
-                </table>
-              </cmz:cuerpoPanel>
-            </cmz:panel>
-          </form>
-        </cmz:cuerpoPanelCMZ>
-      </cmz:panelCMZ>
-    </cmz:main>
-  </body>
+<body onload="inicio();" onkeydown="keyDown(event);">
+	<cmz:main>
+		<cmz:panelCMZ>
+			<cmz:cabeceraPanelCMZ titulo="${permisos.accionMenu.titulo}"
+				icono="${permisos.accionMenu.icono}">
+				<cmz:acciones numAccionesVisibles="5">
+					<c:choose>
+						<c:when test="${!comunidad.enEdicion}">
+							<cmz:accion icono="comun/images/iconos/i-volver.gif"
+								onclick="volver();" titulo="Volver" descripcion="Volver"></cmz:accion>
+							<c:if test="${permisos.puedeEditar}">
+								<cmz:accion icono="comun/images/iconos/i-edit.gif"
+									onclick="editar();" titulo="Editar"
+									descripcion="Editar Comunidad"></cmz:accion>
+							</c:if>
+							<c:if test="${permisos.puedeAñadir}">
+								<cmz:accionNuevoRegistro onclick="alta();"
+									descripcion="Añadir una nueva Comunidad" />
+							</c:if>
+							<c:if test="${permisos.puedeEliminar}">
+								<cmz:accion icono="comun/images/iconos/i-cancel.gif"
+									onclick="eliminar();" titulo="Eliminar"
+									descripcion="Eliminar Comunidad"></cmz:accion>
+							</c:if>
+						</c:when>
+						<c:otherwise>
+							<cmz:accionSalvar onclick="aceptar();" />
+							<cmz:accionCancelar onclick="cancelar();" />
+						</c:otherwise>
+					</c:choose>
+				</cmz:acciones>
+			</cmz:cabeceraPanelCMZ>
+
+			<!-- formulario -->
+			<cmz:cuerpoPanelCMZ>
+				<cmz:mensaje />
+				<form id="frmDatos" name="frmDatos" action="comunidades"
+					method="post">
+					<input id="accion" name="accion" type="hidden" value="" /> <input
+						id="idObjeto" name="idObjeto" type="hidden"
+						value="${comunidad.codigo}" /> <input id="estadoObjeto"
+						name="estadoObjeto" type="hidden" value="${comunidad.estadoBean}" />
+
+					<cmz:panel>
+						<cmz:cabeceraPanel titulo="Datos de la Comunidad Autónoma"></cmz:cabeceraPanel>
+						<cmz:cuerpoPanel>
+							<table cellpadding="2px" cellspacing="2px" border="0px">
+								<tr>
+									<td><cmz:etiqueta titulo="Código" />:</td>
+									<td><cmz:campoTexto id="codigo"
+											valor="${comunidad.codigo}" requerido="true" anchura="200px"
+											longitudMaxima="6" editable="${comunidad.enEdicion	}"
+											soloLectura="${!comunidad.enEdicion}" /></td>
+								</tr>
+								<tr>
+									<td><cmz:etiqueta titulo="Descripción" />:</td>
+									<td><cmz:campoTexto id="descripcion"
+											valor="${comunidad.descripcion}" requerido="true"
+											anchura="200px" longitudMaxima="20"
+											editable="${comunidad.enEdicion}"
+											soloLectura="${!comunidad.enEdicion}" /></td>
+								</tr>
+								<tr>
+									<td><cmz:etiqueta titulo="Idioma" />:</td>
+									<td><cmz:campoTexto id="idioma"
+											valor="${comunidad.idioma}" requerido="true" anchura="200px"
+											longitudMaxima="20" editable="${comunidad.enEdicion}"
+											soloLectura="${!comunidad.enEdicion}" /></td>
+								</tr>
+							</table>
+						</cmz:cuerpoPanel>
+					</cmz:panel>
+				</form>
+			</cmz:cuerpoPanelCMZ>
+		</cmz:panelCMZ>
+	</cmz:main>
+</body>
 </html>

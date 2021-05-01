@@ -1,5 +1,8 @@
 package com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones;
 
+import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean;
+import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample;
+import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;

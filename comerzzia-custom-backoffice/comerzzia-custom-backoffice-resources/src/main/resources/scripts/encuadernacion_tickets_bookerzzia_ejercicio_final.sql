@@ -3,17 +3,18 @@
 /* Nivel 1*/
 
 /*creacion de tabla custom*/
-
+DROP TABLE cmz_bookerzzia.x_encuadernacion_tbl ;
 /*Esta tabla recogerá los datos que extraeré de procesadores de documentos personalizados*/
 CREATE TABLE CMZ_BOOKERZZIA.X_ENCUADERNACION_TBL (
  UID_ACTIVIDAD VARCHAR(40) NOT NULL,
  CODALM VARCHAR(4) NOT NULL,
- ID_CLIE_ALBARAN BIGINT (10) NOT NULL, 
+ ID_CLIE_ALBARAN BIGINT (10) NOT NULL,
+ LINEA int(5) NOT NULL,
  TAPA VARCHAR(10) NOT NULL,
  SUBTITULO VARCHAR(30) NULL,
  DEDICATORIA VARCHAR(60) NULL,
- HECHO VARCHAR(1) NOT NULL,
- PRIMARY KEY(UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN)
+ HECHO VARCHAR(1) NULL,
+ PRIMARY KEY(UID_ACTIVIDAD, CODALM, ID_CLIE_ALBARAN, LINEA)
 );
 
 /*Modifica la tabla de tipos de documentos para que el backoffice admin use nuestra customizada para procesar los tickets de venta de factura simplificada*/

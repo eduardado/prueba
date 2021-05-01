@@ -23,7 +23,7 @@ public class CustomProcesadorAlabaranVenta extends ProcesadorAlbaranVenta{
 	 */
 	@Override
 	protected TicketParser crearTicketParser(Connection conn, DatosSesionBean datosSesion, TicketBean ticket, SqlSession sqlSession) {
-		log.error("TicketParser() - Creando un TicketParser Adaptado");
+		log.debug("TicketParser() - Creando un TicketParser Adaptado");
 		/*
 		 * En el standard crea un TicketParser.
 		 * Sobreescribimos para que cree uno personalizado

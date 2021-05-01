@@ -16,37 +16,17 @@ public class CustomServicioArticulosAlbaranesVentasImpl extends ServicioArticulo
 
 	protected Logger log = Logger.getLogger(getClass());
 
-	private EncuadernacionBean createBinding(ArticuloAlbaranVentaBean articulo, Connection conn, ConfigEmpresaBean configEmpresa) {
-		/*
-		 * Extraigo los valores de los key-value que había almacenado en el mapa de ArticuloAlbaranVentaBean
-		 */
-		String tapa = (String) articulo.getExtension(EncuadernacionKeys.TAPA);
-		String subtitulo = (String) articulo.getExtension(EncuadernacionKeys.SUBTITULO);
-		String dedicatoria = (String) articulo.getExtension(EncuadernacionKeys.DEDICATORIA);
-		String codalm = (String) articulo.getExtension(EncuadernacionKeys.CODIGO_ALMACEN);
-
-		/*
-		 * crea una encuadernación usando el modelo Bean sin Mybatis-Spring y setea los valores
-		 */
-		EncuadernacionBean encuadernacion = new EncuadernacionBean();
-
-		encuadernacion.setUidActividad(configEmpresa.getUidActividad()); // PK
-		encuadernacion.setCodalm(codalm); // PK
-		encuadernacion.setIdClieAlbaran(articulo.getIdAlbaran()); // PK
-		encuadernacion.setTapa(tapa);
-		encuadernacion.setSubtitulo(subtitulo);
-		encuadernacion.setDedicatoria(dedicatoria);
-
-		return encuadernacion;
-
-	}
-
+	
 	@Override
 	public void crear(ArticuloAlbaranVentaBean articulo, ConfigEmpresaBean configEmpresa, Connection conn) throws ArticuloAlbaranVentaException {
-		log.debug("crear() - PRUEBAS");
-		super.crear(articulo, configEmpresa, conn);
-		EncuadernacionBean encuadernacion = createBinding(articulo, conn, configEmpresa); // crea encuadernación
+		log.debug("crear()@override");
+		/*
+		 * Por aquí se pasa una vez por cada línea del Ticket de Venta
+		 */
+		EncuadernacionBean encuadernacion = crearEncuadernacion(articulo, conn, configEmpresa); // crea encuadernación
 		insertarEncuadernacion(encuadernacion, conn); // la guarda en BD
+		
+		super.crear(articulo, configEmpresa, conn);
 	}
 
 	/**
@@ -54,15 +34,52 @@ public class CustomServicioArticulosAlbaranesVentasImpl extends ServicioArticulo
 	 * @param datosSesion2
 	 */
 	private void insertarEncuadernacion(EncuadernacionBean encuadernacion, Connection conn) {
-
-		log.debug("insertarEncuadernacion()");
+//com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanMapper
+		log.debug("insertarEncuadernacion() - insertando la encuadernacion con subtítulo: " + encuadernacion.getSubtitulo() );
 
 		@SuppressWarnings("deprecation")
 		SqlSession sqlSession = conn.abrirConexion();
 		EncuadernacionBeanMapper mapper = sqlSession.getMapper(EncuadernacionBeanMapper.class);
-		mapper.insert(encuadernacion);
+		mapper.insertSelective(encuadernacion);
+		/*
+		 * no cierro la conexión por si acaso
+		 */
 		sqlSession.commit(); // hace falta?
-		sqlSession.close();
+//		sqlSession.close(); // TODO tendrá que ver con el executioner?
+
+	}
+	
+	private EncuadernacionBean crearEncuadernacion(ArticuloAlbaranVentaBean articuloAlbaranVentaBean, Connection conn, ConfigEmpresaBean configEmpresa) {
+		log.debug("crearEncuadernacion() - Creando Encuadernación");
+		
+		/*
+		 * Extraigo los valores de los key-value que había almacenado en el mapa de ArticuloAlbaranVentaBean
+		 */
+		String tapa = (String) articuloAlbaranVentaBean.getExtension(EncuadernacionKeys.TAPA);
+		String subtitulo = (String) articuloAlbaranVentaBean.getExtension(EncuadernacionKeys.SUBTITULO);
+		String dedicatoria = (String) articuloAlbaranVentaBean.getExtension(EncuadernacionKeys.DEDICATORIA);
+		String codalm = (String) articuloAlbaranVentaBean.getExtension(EncuadernacionKeys.CODIGO_ALMACEN);
+		
+		
+		
+// hay algún atributo de los objetos que recibo por parámetro que guarde el código del almacen en este punto?
+		
+		/*
+		 * Creo un objeto nuevo a partir de la información contenida en la extensión del 
+		 * ArticuloAlbaranVentaBean
+		 */
+		EncuadernacionBean encuadernacionBean = new EncuadernacionBean();
+		encuadernacionBean.setUidActividad(configEmpresa.getUidActividad()); // PK
+		encuadernacionBean.setCodalm(codalm); // PK
+		encuadernacionBean.setIdClieAlbaran(articuloAlbaranVentaBean.getIdAlbaran()); // PK
+		encuadernacionBean.setLinea(articuloAlbaranVentaBean.getLinea()); // TODO NEW!
+		encuadernacionBean.setTapa(tapa);
+		encuadernacionBean.setSubtitulo(subtitulo);
+		encuadernacionBean.setDedicatoria(dedicatoria);
+		
+		log.debug("crearEncuadernacion() - Encuadernación creada: " + encuadernacionBean);
+
+		return encuadernacionBean;
 
 	}
 

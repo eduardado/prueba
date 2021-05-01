@@ -8,7 +8,9 @@ import com.comerzzia.core.util.db.Connection;
 import com.comerzzia.core.util.db.PreparedStatement;
 import com.comerzzia.model.ventas.albaranes.articulos.ArticuloAlbaranVentaBean;
 import com.comerzzia.persistencia.ventas.albaranes.articulos.ArticulosAlbaranesVentasDao;
-
+/*
+ * No estoy usando esta clase, decidí usar el mapper de ibatis
+ */
 public class CustomArticulosAlbaranesVentasDao extends ArticulosAlbaranesVentasDao {
 	
 	protected static String TABLA_DETALLE_ALBARANES = "D_CLIE_ALBARANES_DET_TBL";

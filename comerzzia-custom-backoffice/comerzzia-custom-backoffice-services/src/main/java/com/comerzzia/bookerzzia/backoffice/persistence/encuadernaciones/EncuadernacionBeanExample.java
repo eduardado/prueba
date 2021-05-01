@@ -304,6 +304,66 @@ public class EncuadernacionBeanExample {
             return (Criteria) this;
         }
 
+        public Criteria andLineaIsNull() {
+            addCriterion("LINEA is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaIsNotNull() {
+            addCriterion("LINEA is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaEqualTo(Integer value) {
+            addCriterion("LINEA =", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaNotEqualTo(Integer value) {
+            addCriterion("LINEA <>", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaGreaterThan(Integer value) {
+            addCriterion("LINEA >", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaGreaterThanOrEqualTo(Integer value) {
+            addCriterion("LINEA >=", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaLessThan(Integer value) {
+            addCriterion("LINEA <", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaLessThanOrEqualTo(Integer value) {
+            addCriterion("LINEA <=", value, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaIn(List<Integer> values) {
+            addCriterion("LINEA in", values, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaNotIn(List<Integer> values) {
+            addCriterion("LINEA not in", values, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaBetween(Integer value1, Integer value2) {
+            addCriterion("LINEA between", value1, value2, "linea");
+            return (Criteria) this;
+        }
+
+        public Criteria andLineaNotBetween(Integer value1, Integer value2) {
+            addCriterion("LINEA not between", value1, value2, "linea");
+            return (Criteria) this;
+        }
+
         public Criteria andTapaIsNull() {
             addCriterion("TAPA is null");
             return (Criteria) this;

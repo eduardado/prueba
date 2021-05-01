@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.comerzzia.bookerzzia.backoffice</groupId>
@@ -27,28 +29,13 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- comerzzia country adaptations -->
-		<!--
-		<dependency>
-			<groupId>com.comerzzia.spain</groupId>
-			<artifactId>comerzzia-backoffice-spain</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.comerzzia.portugal</groupId>
-			<artifactId>comerzzia-backoffice-portugal</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.comerzzia.mexico</groupId>
-			<artifactId>comerzzia-backoffice-mexico</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.comerzzia.italia</groupId>
-			<artifactId>comerzzia-backoffice-italia</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>com.comerzzia.spain</groupId> <artifactId>comerzzia-backoffice-spain</artifactId> 
+			<scope>runtime</scope> </dependency> <dependency> <groupId>com.comerzzia.portugal</groupId> 
+			<artifactId>comerzzia-backoffice-portugal</artifactId> <scope>runtime</scope> 
+			</dependency> <dependency> <groupId>com.comerzzia.mexico</groupId> <artifactId>comerzzia-backoffice-mexico</artifactId> 
+			<scope>runtime</scope> </dependency> <dependency> <groupId>com.comerzzia.italia</groupId> 
+			<artifactId>comerzzia-backoffice-italia</artifactId> <scope>runtime</scope> 
+			</dependency> -->
 		<!-- custom project services -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>

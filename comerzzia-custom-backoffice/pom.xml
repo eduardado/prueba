@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.comerzzia.bookerzzia.backoffice</groupId>
 	<artifactId>comerzzia-custom-backoffice</artifactId>
@@ -19,12 +21,8 @@
 			<id>comerzzia</id>
 			<url>http://repo.comerzzia.com/artifactory/comerzzia/</url>
 		</repository>
-		<!-- custom repository
-		<repository>
-			<id>custom</id>
-			<url>http://software.tier1.es/artifactory/clientes.local/</url>
-		</repository>
-		-->
+		<!-- custom repository <repository> <id>custom</id> <url>http://software.tier1.es/artifactory/clientes.local/</url> 
+			</repository> -->
 	</repositories>
 
 	<pluginRepositories>
@@ -34,20 +32,11 @@
 		</pluginRepository>
 	</pluginRepositories>
 
-	<!-- deploy repository
-	<distributionManagement>
-		<repository>
-			<id>artifactory</id>
-			<name>custom-releases</name>
-			<url>http://software.tier1.es/artifactory/clientes.local</url>
-		</repository>
-		<snapshotRepository>
-			<id>artifactory</id>
-			<name>custom-snapshots</name>
-			<url>http://software.tier1.es/artifactory/clientes.local</url>
-		</snapshotRepository>
-	</distributionManagement>
-	-->
+	<!-- deploy repository <distributionManagement> <repository> <id>artifactory</id> 
+		<name>custom-releases</name> <url>http://software.tier1.es/artifactory/clientes.local</url> 
+		</repository> <snapshotRepository> <id>artifactory</id> <name>custom-snapshots</name> 
+		<url>http://software.tier1.es/artifactory/clientes.local</url> </snapshotRepository> 
+		</distributionManagement> -->
 
 	<dependencies>
 		<dependency>
@@ -153,20 +142,15 @@
 						</archive>
 					</configuration>
 				</plugin>
-				<!-- deploy plugin configuration
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>2.7</version>
-				</plugin>
-				-->
+				<!-- deploy plugin configuration <plugin> <groupId>org.apache.maven.plugins</groupId> 
+					<artifactId>maven-deploy-plugin</artifactId> <version>2.7</version> </plugin> -->
 			</plugins>
 		</pluginManagement>
 	</build>
-  <modules>
-    <module>comerzzia-custom-backoffice-resources</module>
-    <module>comerzzia-custom-backoffice-services</module>
-    <module>comerzzia-custom-backoffice-web</module>
-    <module>comerzzia-custom-backoffice-admin-web</module>
-  </modules>
+	<modules>
+		<module>comerzzia-custom-backoffice-resources</module>
+		<module>comerzzia-custom-backoffice-services</module>
+		<module>comerzzia-custom-backoffice-web</module>
+		<module>comerzzia-custom-backoffice-admin-web</module>
+	</modules>
 </project>

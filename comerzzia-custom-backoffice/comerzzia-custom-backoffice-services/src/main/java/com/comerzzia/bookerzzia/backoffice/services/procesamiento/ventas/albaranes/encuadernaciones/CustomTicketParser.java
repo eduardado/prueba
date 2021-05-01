@@ -30,6 +30,10 @@ public class CustomTicketParser extends TicketParser {
 
 	public CustomTicketParser(Connection conn, DatosSesionBean datosSesion, TicketBean ticket, SqlSession sqlSession) {
 		super(conn, datosSesion, ticket, sqlSession);
+		/*
+		 * Esta implementación sólo es válida en el caso de que todos los artículos de la venta
+		 * provengan del mismo almacén. De lo contrario habría problemas. Es un poco chapucero.
+		 */
 		codal = ticket.getCodAlmacen(); // obtengo el código de almacen y lo almaceno en un atributo de la clase
 	}
 

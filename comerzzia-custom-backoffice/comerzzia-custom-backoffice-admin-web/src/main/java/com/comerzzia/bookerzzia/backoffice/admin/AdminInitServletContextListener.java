@@ -17,13 +17,6 @@ public class AdminInitServletContextListener extends com.comerzzia.web.listeners
 	public void contextInitialized(ServletContextEvent sce) {
 		log.info("Configuring custom services");
 		
-		/*
-		 * Inyecta la instancia de la clase personalizada
-		 * El módulo admin es el que procesa los documentos, es éste listener donde hay que inyectar las
-		 * instancias de las clases personalizadas.
-		 */
-		ServicioArticulosAlbaranesVentasImpl.setCustomInstance(new CustomServicioArticulosAlbaranesVentasImpl());
-		
 		super.contextInitialized(sce);
 		
 		/*

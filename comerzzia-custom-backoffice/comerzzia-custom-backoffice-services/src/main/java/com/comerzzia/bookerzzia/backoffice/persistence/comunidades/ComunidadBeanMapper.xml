@@ -1,210 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanMapper">
-  <resultMap id="BaseResultMap" type="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-    <id column="UID_ACTIVIDAD" jdbcType="VARCHAR" property="uidActividad" />
-    <id column="CODIGO" jdbcType="VARCHAR" property="codigo" />
-    <result column="DESCRIPCION" jdbcType="VARCHAR" property="descripcion" />
-    <result column="IDIOMA" jdbcType="VARCHAR" property="idioma" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    UID_ACTIVIDAD, CODIGO, DESCRIPCION, IDIOMA
-  </sql>
-  <select id="selectByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from x_comunidades_autonomas_tbl
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanKey" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from x_comunidades_autonomas_tbl
-    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-      and CODIGO = #{codigo,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanKey">
-    delete from x_comunidades_autonomas_tbl
-    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-      and CODIGO = #{codigo,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample">
-    delete from x_comunidades_autonomas_tbl
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-    insert into x_comunidades_autonomas_tbl (UID_ACTIVIDAD, CODIGO, DESCRIPCION, 
-      IDIOMA)
-    values (#{uidActividad,jdbcType=VARCHAR}, #{codigo,jdbcType=VARCHAR}, #{descripcion,jdbcType=VARCHAR}, 
-      #{idioma,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-    insert into x_comunidades_autonomas_tbl
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uidActividad != null">
-        UID_ACTIVIDAD,
-      </if>
-      <if test="codigo != null">
-        CODIGO,
-      </if>
-      <if test="descripcion != null">
-        DESCRIPCION,
-      </if>
-      <if test="idioma != null">
-        IDIOMA,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uidActividad != null">
-        #{uidActividad,jdbcType=VARCHAR},
-      </if>
-      <if test="codigo != null">
-        #{codigo,jdbcType=VARCHAR},
-      </if>
-      <if test="descripcion != null">
-        #{descripcion,jdbcType=VARCHAR},
-      </if>
-      <if test="idioma != null">
-        #{idioma,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample" resultType="java.lang.Long">
-    select count(*) from x_comunidades_autonomas_tbl
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update x_comunidades_autonomas_tbl
-    <set>
-      <if test="record.uidActividad != null">
-        UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
-      </if>
-      <if test="record.codigo != null">
-        CODIGO = #{record.codigo,jdbcType=VARCHAR},
-      </if>
-      <if test="record.descripcion != null">
-        DESCRIPCION = #{record.descripcion,jdbcType=VARCHAR},
-      </if>
-      <if test="record.idioma != null">
-        IDIOMA = #{record.idioma,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update x_comunidades_autonomas_tbl
-    set UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
-      CODIGO = #{record.codigo,jdbcType=VARCHAR},
-      DESCRIPCION = #{record.descripcion,jdbcType=VARCHAR},
-      IDIOMA = #{record.idioma,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-    update x_comunidades_autonomas_tbl
-    <set>
-      <if test="descripcion != null">
-        DESCRIPCION = #{descripcion,jdbcType=VARCHAR},
-      </if>
-      <if test="idioma != null">
-        IDIOMA = #{idioma,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-      and CODIGO = #{codigo,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-    update x_comunidades_autonomas_tbl
-    set DESCRIPCION = #{descripcion,jdbcType=VARCHAR},
-      IDIOMA = #{idioma,jdbcType=VARCHAR}
-    where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-      and CODIGO = #{codigo,jdbcType=VARCHAR}
-  </update>
-  <select id="selectByExampleWithRowbounds" parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from x_comunidades_autonomas_tbl
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+<mapper
+	namespace="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
+		<id column="UID_ACTIVIDAD" jdbcType="VARCHAR"
+			property="uidActividad" />
+		<id column="CODIGO" jdbcType="VARCHAR" property="codigo" />
+		<result column="DESCRIPCION" jdbcType="VARCHAR"
+			property="descripcion" />
+		<result column="IDIOMA" jdbcType="VARCHAR" property="idioma" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value"
+										item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value"
+										item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		UID_ACTIVIDAD, CODIGO, DESCRIPCION, IDIOMA
+	</sql>
+	<select id="selectByExample"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample"
+		resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from x_comunidades_autonomas_tbl
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanKey"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from x_comunidades_autonomas_tbl
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanKey">
+		delete from x_comunidades_autonomas_tbl
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByExample"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample">
+		delete from x_comunidades_autonomas_tbl
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
+		insert into x_comunidades_autonomas_tbl (UID_ACTIVIDAD, CODIGO, DESCRIPCION,
+		IDIOMA)
+		values (#{uidActividad,jdbcType=VARCHAR}, #{codigo,jdbcType=VARCHAR},
+		#{descripcion,jdbcType=VARCHAR},
+		#{idioma,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
+		insert into x_comunidades_autonomas_tbl
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uidActividad != null">
+				UID_ACTIVIDAD,
+			</if>
+			<if test="codigo != null">
+				CODIGO,
+			</if>
+			<if test="descripcion != null">
+				DESCRIPCION,
+			</if>
+			<if test="idioma != null">
+				IDIOMA,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uidActividad != null">
+				#{uidActividad,jdbcType=VARCHAR},
+			</if>
+			<if test="codigo != null">
+				#{codigo,jdbcType=VARCHAR},
+			</if>
+			<if test="descripcion != null">
+				#{descripcion,jdbcType=VARCHAR},
+			</if>
+			<if test="idioma != null">
+				#{idioma,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample"
+		resultType="java.lang.Long">
+		select count(*) from x_comunidades_autonomas_tbl
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update x_comunidades_autonomas_tbl
+		<set>
+			<if test="record.uidActividad != null">
+				UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
+			</if>
+			<if test="record.codigo != null">
+				CODIGO = #{record.codigo,jdbcType=VARCHAR},
+			</if>
+			<if test="record.descripcion != null">
+				DESCRIPCION = #{record.descripcion,jdbcType=VARCHAR},
+			</if>
+			<if test="record.idioma != null">
+				IDIOMA = #{record.idioma,jdbcType=VARCHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update x_comunidades_autonomas_tbl
+		set UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
+		CODIGO = #{record.codigo,jdbcType=VARCHAR},
+		DESCRIPCION = #{record.descripcion,jdbcType=VARCHAR},
+		IDIOMA = #{record.idioma,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
+		update x_comunidades_autonomas_tbl
+		<set>
+			<if test="descripcion != null">
+				DESCRIPCION = #{descripcion,jdbcType=VARCHAR},
+			</if>
+			<if test="idioma != null">
+				IDIOMA = #{idioma,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
+		update x_comunidades_autonomas_tbl
+		set DESCRIPCION = #{descripcion,jdbcType=VARCHAR},
+		IDIOMA = #{idioma,jdbcType=VARCHAR}
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
+	</update>
+	<select id="selectByExampleWithRowbounds"
+		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample"
+		resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from x_comunidades_autonomas_tbl
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
 </mapper>
