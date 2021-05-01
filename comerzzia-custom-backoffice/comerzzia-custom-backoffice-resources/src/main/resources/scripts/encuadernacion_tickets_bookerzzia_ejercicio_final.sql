@@ -34,6 +34,17 @@ select * from czzposs_bookerzzia.d_tickets_tbl dtt ; -- documentos tienda
 select * from cmz_bookerzzia.d_clie_albaranes_det_tbl ; -- albaranes datos cabecera
 SELECT * FROM CMZ_BOOKERZZIA.d_clie_albaranes_cab_tbl; -- albaranes datos 
 
+SELECT * FROM cmz_bookerzzia.x_encuadernacion_tbl xet ;
+
+/*Ciclo pruebas*/
+select * from czzposs_bookerzzia.d_tickets_tbl dtt ORDER BY dtt.id_ticket desc; -- documentos tienda
+select * from cmz_bookerzzia.d_tickets_tbl dtt ORDER BY dtt.id_ticket desc; -- documentos tienda
+
+SELECT * FROM CMZ_BOOKERZZIA.d_clie_albaranes_cab_tbl ORDER BY id_clie_albaran desc ; -- albaranes standard datos 
+select * from cmz_bookerzzia.d_clie_albaranes_det_tbl ORDER BY id_clie_albaran desc; -- albaranes standard detalle
+
+SELECT * FROM cmz_bookerzzia.x_encuadernacion_tbl xet; -- albarán personalizado compra (debería ser como el de detalle)
+
 
 
 

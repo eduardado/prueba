@@ -34,19 +34,17 @@ public class CustomTicketParser extends TicketParser {
 	}
 
 	@Override
-	protected ArticuloAlbaranVentaBean obtenerDetalleArticulo(Element linea) throws XMLDocumentException {
+	protected ArticuloAlbaranVentaBean obtenerDetalleArticulo(Element element) throws XMLDocumentException {
 
-		/*
-		 * DAVID: Es mejor llamar al super porque si cambia el standard esta implementación ya no vale.
-		 */
 
 		/*
 		 * Recupero el objeto que ha obtenido todos los detalles de la línea standard
 		 */
-		ArticuloAlbaranVentaBean albaran = super.obtenerDetalleArticulo(linea);
+		ArticuloAlbaranVentaBean articuloAlbaranVentaBean = super.obtenerDetalleArticulo(element);
 
 		try {
-			Element binding = XMLDocumentUtils.getElement(linea, "binding", true);
+			Element binding = XMLDocumentUtils.getElement(element, "binding", true);
+			
 
 			String tapa = XMLDocumentUtils.getTagValueAsString(binding, EncuadernacionKeys.TAPA, true);
 			String subtitulo = XMLDocumentUtils.getTagValueAsString(binding, EncuadernacionKeys.SUBTITULO, true);
@@ -55,10 +53,10 @@ public class CustomTicketParser extends TicketParser {
 			/*
 			 * Añade campos extra en el mapa de "extension" 
 			 */
-			albaran.putExtension(EncuadernacionKeys.TAPA, tapa); 
-			albaran.putExtension(EncuadernacionKeys.SUBTITULO, subtitulo); 
-			albaran.putExtension(EncuadernacionKeys.DEDICATORIA, dedicatoria); 
-			albaran.putExtension(EncuadernacionKeys.CODIGO_ALMACEN, codal); // lo añado a partir de un atributo de la clase
+			articuloAlbaranVentaBean.putExtension(EncuadernacionKeys.TAPA, tapa); 
+			articuloAlbaranVentaBean.putExtension(EncuadernacionKeys.SUBTITULO, subtitulo); 
+			articuloAlbaranVentaBean.putExtension(EncuadernacionKeys.DEDICATORIA, dedicatoria); 
+			articuloAlbaranVentaBean.putExtension(EncuadernacionKeys.CODIGO_ALMACEN, codal); // lo añado a partir de un atributo de la clase
 		}
 		catch (XMLDocumentException e) {
 			log.error("Error al leer el XML del ticket");
@@ -66,7 +64,7 @@ public class CustomTicketParser extends TicketParser {
 		}
 
 
-		return albaran;
+		return articuloAlbaranVentaBean;
 	}
 
 }

@@ -11,9 +11,12 @@ import com.comerzzia.persistencia.ventas.albaranes.articulos.ArticulosAlbaranesV
 
 public class CustomArticulosAlbaranesVentasDao extends ArticulosAlbaranesVentasDao {
 	
-	private static String TABLA_DETALLE_ALBARANES = "D_CLIE_ALBARANES_DET_TBL";
+	protected static String TABLA_DETALLE_ALBARANES = "D_CLIE_ALBARANES_DET_TBL";
+	
 	
 	public static void insert(Connection conn, ArticuloAlbaranVentaBean detalle, ConfigEmpresaBean config) throws SQLException {
+		
+		
 		
 		String sqlCustom = null;
 		PreparedStatement pstmtCustom = null;
