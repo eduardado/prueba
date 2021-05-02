@@ -1,34 +1,32 @@
 package com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones;
 
-import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBean;
-import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanExample;
-import com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones.EncuadernacionBeanKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 public interface EncuadernacionBeanMapper {
-    long countByExample(EncuadernacionBeanExample example);
 
-    int deleteByExample(EncuadernacionBeanExample example);
+	long countByExample(EncuadernacionBeanExample example);
 
-    int deleteByPrimaryKey(EncuadernacionBeanKey key);
+	int deleteByExample(EncuadernacionBeanExample example);
 
-    int insert(EncuadernacionBean record);
+	int deleteByPrimaryKey(EncuadernacionBeanKey key);
 
-    int insertSelective(EncuadernacionBean record);
+	int insert(EncuadernacionBean record);
 
-    List<EncuadernacionBean> selectByExampleWithRowbounds(EncuadernacionBeanExample example, RowBounds rowBounds);
+	int insertSelective(EncuadernacionBean record);
 
-    List<EncuadernacionBean> selectByExample(EncuadernacionBeanExample example);
+	List<EncuadernacionBean> selectByExampleWithRowbounds(EncuadernacionBeanExample example, RowBounds rowBounds);
 
-    EncuadernacionBean selectByPrimaryKey(EncuadernacionBeanKey key);
+	List<EncuadernacionBean> selectByExample(EncuadernacionBeanExample example);
 
-    int updateByExampleSelective(@Param("record") EncuadernacionBean record, @Param("example") EncuadernacionBeanExample example);
+	EncuadernacionBean selectByPrimaryKey(EncuadernacionBeanKey key);
 
-    int updateByExample(@Param("record") EncuadernacionBean record, @Param("example") EncuadernacionBeanExample example);
+	int updateByExampleSelective(@Param("record") EncuadernacionBean record, @Param("example") EncuadernacionBeanExample example);
 
-    int updateByPrimaryKeySelective(EncuadernacionBean record);
+	int updateByExample(@Param("record") EncuadernacionBean record, @Param("example") EncuadernacionBeanExample example);
 
-    int updateByPrimaryKey(EncuadernacionBean record);
+	int updateByPrimaryKeySelective(EncuadernacionBean record);
+
+	int updateByPrimaryKey(EncuadernacionBean record);
 }

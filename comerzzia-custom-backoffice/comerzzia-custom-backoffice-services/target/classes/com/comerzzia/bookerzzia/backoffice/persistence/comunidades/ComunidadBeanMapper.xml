@@ -26,8 +26,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -59,8 +58,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -102,18 +100,14 @@
 		select
 		<include refid="Base_Column_List" />
 		from x_comunidades_autonomas_tbl
-		where UID_ACTIVIDAD =
-		#{uidActividad,jdbcType=VARCHAR}
-		and CODIGO =
-		#{codigo,jdbcType=VARCHAR}
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
 	</select>
 	<delete id="deleteByPrimaryKey"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanKey">
 		delete from x_comunidades_autonomas_tbl
-		where
-		UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-		and CODIGO =
-		#{codigo,jdbcType=VARCHAR}
+		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
 	</delete>
 	<delete id="deleteByExample"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample">
@@ -124,11 +118,9 @@
 	</delete>
 	<insert id="insert"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
-		insert into x_comunidades_autonomas_tbl (UID_ACTIVIDAD,
-		CODIGO, DESCRIPCION,
+		insert into x_comunidades_autonomas_tbl (UID_ACTIVIDAD, CODIGO, DESCRIPCION,
 		IDIOMA)
-		values (#{uidActividad,jdbcType=VARCHAR},
-		#{codigo,jdbcType=VARCHAR},
+		values (#{uidActividad,jdbcType=VARCHAR}, #{codigo,jdbcType=VARCHAR},
 		#{descripcion,jdbcType=VARCHAR},
 		#{idioma,jdbcType=VARCHAR})
 	</insert>
@@ -194,14 +186,10 @@
 	</update>
 	<update id="updateByExample" parameterType="map">
 		update x_comunidades_autonomas_tbl
-		set UID_ACTIVIDAD =
-		#{record.uidActividad,jdbcType=VARCHAR},
-		CODIGO =
-		#{record.codigo,jdbcType=VARCHAR},
-		DESCRIPCION =
-		#{record.descripcion,jdbcType=VARCHAR},
-		IDIOMA =
-		#{record.idioma,jdbcType=VARCHAR}
+		set UID_ACTIVIDAD = #{record.uidActividad,jdbcType=VARCHAR},
+		CODIGO = #{record.codigo,jdbcType=VARCHAR},
+		DESCRIPCION = #{record.descripcion,jdbcType=VARCHAR},
+		IDIOMA = #{record.idioma,jdbcType=VARCHAR}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -218,18 +206,15 @@
 			</if>
 		</set>
 		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-		and CODIGO =
-		#{codigo,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
 	</update>
 	<update id="updateByPrimaryKey"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBean">
 		update x_comunidades_autonomas_tbl
-		set DESCRIPCION =
-		#{descripcion,jdbcType=VARCHAR},
+		set DESCRIPCION = #{descripcion,jdbcType=VARCHAR},
 		IDIOMA = #{idioma,jdbcType=VARCHAR}
 		where UID_ACTIVIDAD = #{uidActividad,jdbcType=VARCHAR}
-		and CODIGO =
-		#{codigo,jdbcType=VARCHAR}
+		and CODIGO = #{codigo,jdbcType=VARCHAR}
 	</update>
 	<select id="selectByExampleWithRowbounds"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.comunidades.ComunidadBeanExample"

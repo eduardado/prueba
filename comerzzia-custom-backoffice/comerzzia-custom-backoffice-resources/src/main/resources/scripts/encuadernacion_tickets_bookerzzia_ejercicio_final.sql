@@ -22,6 +22,8 @@ UPDATE cmz_bookerzzia.d_tipos_documentos tipo
 SET tipo.CLASE_PROCESAMIENTO = 'com.comerzzia.bookerzzia.backoffice.services.procesamiento.ventas.albaranes.encuadernaciones.CustomProcesadorAlabaranVenta'
 WHERE tipo.ID_TIPO_DOCUMENTO = 1;
 
+/* Nivel 2*/
+
 
 
 /* INFORMACIÓN EXTRA*/

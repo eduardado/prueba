@@ -26,8 +26,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -59,8 +58,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -102,18 +100,14 @@
 		select
 		<include refid="Base_Column_List" />
 		from d_lenguajes_tbl
-		where uid_instancia =
-		#{uidInstancia,jdbcType=VARCHAR}
-		and codlengua =
-		#{codlengua,jdbcType=VARCHAR}
+		where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+		and codlengua = #{codlengua,jdbcType=VARCHAR}
 	</select>
 	<delete id="deleteByPrimaryKey"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeKey">
 		delete from d_lenguajes_tbl
-		where uid_instancia =
-		#{uidInstancia,jdbcType=VARCHAR}
-		and codlengua =
-		#{codlengua,jdbcType=VARCHAR}
+		where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+		and codlengua = #{codlengua,jdbcType=VARCHAR}
 	</delete>
 	<delete id="deleteByExample"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample">
@@ -124,11 +118,9 @@
 	</delete>
 	<insert id="insert"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje">
-		insert into d_lenguajes_tbl (uid_instancia, codlengua,
-		deslengua,
+		insert into d_lenguajes_tbl (uid_instancia, codlengua, deslengua,
 		activo)
-		values (#{uidInstancia,jdbcType=VARCHAR},
-		#{codlengua,jdbcType=VARCHAR},
+		values (#{uidInstancia,jdbcType=VARCHAR}, #{codlengua,jdbcType=VARCHAR},
 		#{deslengua,jdbcType=VARCHAR},
 		#{activo,jdbcType=CHAR})
 	</insert>
@@ -194,14 +186,10 @@
 	</update>
 	<update id="updateByExample" parameterType="map">
 		update d_lenguajes_tbl
-		set uid_instancia =
-		#{record.uidInstancia,jdbcType=VARCHAR},
-		codlengua =
-		#{record.codlengua,jdbcType=VARCHAR},
-		deslengua =
-		#{record.deslengua,jdbcType=VARCHAR},
-		activo =
-		#{record.activo,jdbcType=CHAR}
+		set uid_instancia = #{record.uidInstancia,jdbcType=VARCHAR},
+		codlengua = #{record.codlengua,jdbcType=VARCHAR},
+		deslengua = #{record.deslengua,jdbcType=VARCHAR},
+		activo = #{record.activo,jdbcType=CHAR}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -218,19 +206,15 @@
 			</if>
 		</set>
 		where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
-		and codlengua =
-		#{codlengua,jdbcType=VARCHAR}
+		and codlengua = #{codlengua,jdbcType=VARCHAR}
 	</update>
 	<update id="updateByPrimaryKey"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.Lenguaje">
 		update d_lenguajes_tbl
-		set deslengua =
-		#{deslengua,jdbcType=VARCHAR},
+		set deslengua = #{deslengua,jdbcType=VARCHAR},
 		activo = #{activo,jdbcType=CHAR}
-		where
-		uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
-		and codlengua =
-		#{codlengua,jdbcType=VARCHAR}
+		where uid_instancia = #{uidInstancia,jdbcType=VARCHAR}
+		and codlengua = #{codlengua,jdbcType=VARCHAR}
 	</update>
 	<select id="selectByExampleWithRowbounds"
 		parameterType="com.comerzzia.bookerzzia.backoffice.persistence.lenguajes.LenguajeExample"

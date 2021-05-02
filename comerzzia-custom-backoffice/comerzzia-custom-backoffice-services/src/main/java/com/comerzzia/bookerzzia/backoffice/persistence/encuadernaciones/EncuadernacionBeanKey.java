@@ -1,43 +1,44 @@
 package com.comerzzia.bookerzzia.backoffice.persistence.encuadernaciones;
 
 public class EncuadernacionBeanKey {
-    private String uidActividad;
 
-    private String codalm;
+	private String uidActividad;
 
-    private Long idClieAlbaran;
+	private String codalm;
 
-    private Integer linea;
+	private Long idClieAlbaran;
 
-    public String getUidActividad() {
-        return uidActividad;
-    }
+	private Integer linea;
 
-    public void setUidActividad(String uidActividad) {
-        this.uidActividad = uidActividad == null ? null : uidActividad.trim();
-    }
+	public String getUidActividad() {
+		return uidActividad;
+	}
 
-    public String getCodalm() {
-        return codalm;
-    }
+	public void setUidActividad(String uidActividad) {
+		this.uidActividad = uidActividad == null ? null : uidActividad.trim();
+	}
 
-    public void setCodalm(String codalm) {
-        this.codalm = codalm == null ? null : codalm.trim();
-    }
+	public String getCodalm() {
+		return codalm;
+	}
 
-    public Long getIdClieAlbaran() {
-        return idClieAlbaran;
-    }
+	public void setCodalm(String codalm) {
+		this.codalm = codalm == null ? null : codalm.trim();
+	}
 
-    public void setIdClieAlbaran(Long idClieAlbaran) {
-        this.idClieAlbaran = idClieAlbaran;
-    }
+	public Long getIdClieAlbaran() {
+		return idClieAlbaran;
+	}
 
-    public Integer getLinea() {
-        return linea;
-    }
+	public void setIdClieAlbaran(Long idClieAlbaran) {
+		this.idClieAlbaran = idClieAlbaran;
+	}
 
-    public void setLinea(Integer linea) {
-        this.linea = linea;
-    }
+	public Integer getLinea() {
+		return linea;
+	}
+
+	public void setLinea(Integer linea) {
+		this.linea = linea;
+	}
 }
